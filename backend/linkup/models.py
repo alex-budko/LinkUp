@@ -61,6 +61,15 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=265, unique=True, blank=False)
     name = models.CharField(max_length=265, unique=False, blank=False)
 
+    def _get_hours(self):
+        registrations = self.objects.select_related('Registration').get(uid=self.uid)
+        print(registrations)
+        total_time = 0
+        for registration in registrations:
+            if registration.end_time is not None and registration.start_time is not None:
+                total_time += registration.end_time - registration.start_time
+        return total_time
+
     objects = UserManager()
 
     USERNAME_FIELD = 'email'

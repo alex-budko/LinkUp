@@ -25,6 +25,8 @@ function Main() {
   const isVisible = useOnScreen(ref);
   const [page, setPage] = useState(0);
 
+  const textSize = 20
+
   useEffect(()=> {
     if (isVisible) {
       setPage(page + 1);
@@ -82,7 +84,7 @@ function Main() {
       organizer: "Tom",
       availability: "12/50",
       location: "Eastern Philly",
-      tags: ["Beach-clean-up"],
+      tags: ["Beach-clean-up", "Beach-clean-up", "Beach-clean-up", "Beach-clean-up", "Beach-clean-up"],
     },
     {
       title: "Event 3",
@@ -123,9 +125,9 @@ function Main() {
               key={index}
               id={index}
               ref={index === events.length - 1 ? ref : null}
-              width="600px"
+              width="800px"
               p="10"
-              bgColor="green.600"
+              bgColor={color}
               mt="10"
             >
               <Flex justifyContent={"center"}>
@@ -144,16 +146,16 @@ function Main() {
                     <Heading as={Link} to="/event">
                       {event.title}
                     </Heading>
-                    <Text fontSize={24}> {event.organizer}</Text>
-                    <Text fontSize={24}>{event.location}</Text>
+                    <Text fontSize={textSize}> {event.organizer}</Text>
+                    <Text fontSize={textSize}>{event.location}</Text>
                   </VStack>
                 </Box>
                 <Spacer />
-                <Box>
+                <Box maxW={'400px'}>
                   <VStack>
-                      <Text fontSize={24}>{event.start}</Text>
-                      <Text fontSize={24}>{event.availability} available</Text>
-                    <Wrap justify={"center"} maxW="150px" fontSize={24}>
+                      <Text fontSize={textSize}>{event.start}</Text>
+                      <Text fontSize={textSize}>{event.availability} available</Text>
+                    <Wrap justify={"center"} >
                       {event.tags.map((tag, i) => {
                         return <WrapItem bgColor="blue.400" p="5" rounded="xl">{tag}</WrapItem>;
                       })}
