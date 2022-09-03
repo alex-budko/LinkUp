@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(
     localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user"))
-      : { access: "" }
+      : { access: "", name: "", email: "" }
   );
 
   const _user = useMemo(() => ({ user, setUser }), [user, setUser]);

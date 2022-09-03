@@ -29,6 +29,6 @@ export const login = async (email, password) => {
 
     return user;
   } catch (err) {
-    return { error: err };
+    return { error: true };
   }
 };

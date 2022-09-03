@@ -70,6 +70,7 @@ class User(AbstractBaseUser):
                 total_time += registration.end_time - registration.start_time
         return total_time
 
+    hours = property(_get_hours)
     objects = UserManager()
 
     USERNAME_FIELD = 'email'

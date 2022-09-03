@@ -13,7 +13,11 @@ import {
   Image,
   Flex,
   Spacer,
+  GridItem,
+  useMediaQuery,
+  Grid,
 } from "@chakra-ui/react";
+
 import React, { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
@@ -22,25 +26,26 @@ import useOnScreen from "../utils/useOnScreen";
 
 function Main() {
   const ref = useRef();
+  const [isMobile] = useMediaQuery("max-width:500px");
   const isVisible = useOnScreen(ref);
   const [page, setPage] = useState(0);
 
-  const textSize = 20
+  const textSize = 15;
 
-  useEffect(()=> {
+  useEffect(() => {
     if (isVisible) {
       setPage(page + 1);
     }
-  }, [isVisible])
+  }, [isVisible]);
 
   useEffect(() => {
     get_events(page).then((evnts) => {
-      console.log([...events, ...evnts])
+      console.log([...events, ...evnts]);
       // setEvents([...events, ...evnts])
     });
   }, [page]);
 
-  const color = "green.400"
+  const color = "yellow.200";
   const [events, setEvents] = useState([
     {
       title: "Beach clean-up",
@@ -48,8 +53,9 @@ function Main() {
       availability: "12/50",
       location: "Prague",
       start: "8:00PM, June 19th",
-      tags: ["#CleanUp"],
-      picture: "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg" ,
+      tags: ["#CleanUp", "#CleanUp", "#CleanUp"],
+      picture:
+        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
     },
     {
       title: "Food drive",
@@ -58,7 +64,8 @@ function Main() {
       availability: "20/50",
       location: "Souther Philly",
       tags: ["#FoodDrive"],
-      picture: "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg" ,
+      picture:
+        "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
     },
     {
       title: "Gardening",
@@ -67,7 +74,8 @@ function Main() {
       availability: "9/50",
       location: "Boston",
       tags: ["#Garderfair"],
-      picture: "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg" ,
+      picture:
+        "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
     },
     {
       title: "Electricity generation",
@@ -76,31 +84,8 @@ function Main() {
       availability: "9/100",
       location: "Eastern Philly",
       tags: ["#Renewable"],
-      picture: "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
-    },
-    {
-      title: "Event 3",
-      start: "8:00PM, June 28th",
-      organizer: "Tom",
-      availability: "12/50",
-      location: "Eastern Philly",
-      tags: ["Beach-clean-up", "Beach-clean-up", "Beach-clean-up", "Beach-clean-up", "Beach-clean-up"],
-    },
-    {
-      title: "Event 3",
-      start: "8:00PM, June 28th",
-      organizer: "Tom",
-      availability: "12/50",
-      location: "Eastern Philly",
-      tags: ["Beach-clean-up"],
-    },
-    {
-      title: "Event 3",
-      start: "8:00PM, June 28th",
-      organizer: "Tom",
-      availability: "12/50",
-      location: "Eastern Philly",
-      tags: ["Beach-clean-up"],
+      picture:
+        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
     },
   ]);
 
@@ -121,48 +106,65 @@ function Main() {
           return (
             <Box
               rounded="3xl"
-              textAlign="center"
               key={index}
               id={index}
               ref={index === events.length - 1 ? ref : null}
-              width="800px"
-              p="10"
+              p="5"
               bgColor={color}
               mt="10"
+              maxW={["300px", "600px"]}
             >
-              <Flex justifyContent={"center"}>
-                <Box>
-                  <Avatar
-                    _hover={{ cursor: "pointer" }}
-                    as={Link}
-                    to="/event/1"
-                    size="2xl"
-                    src={event.picture}
-                  />
-                </Box>
-                <Spacer />
-                <Box>
+              <Grid templateColumns="1fr 1.3fr">
+                <GridItem p="2">
                   <VStack>
-                    <Heading as={Link} to="/event">
+                    <Heading
+                      size="lg"
+                      as={Link}
+                      to="/event"
+                      textAlign={"center"}
+                    >
                       {event.title}
                     </Heading>
-                    <Text fontSize={textSize}> {event.organizer}</Text>
                     <Text fontSize={textSize}>{event.location}</Text>
                   </VStack>
-                </Box>
-                <Spacer />
-                <Box maxW={'400px'}>
                   <VStack>
-                      <Text fontSize={textSize}>{event.start}</Text>
-                      <Text fontSize={textSize}>{event.availability} available</Text>
-                    <Wrap justify={"center"} >
+                    <Text fontSize={textSize}>{event.start}</Text>
+                    <Text fontSize={textSize}>
+                      {event.availability} available
+                    </Text>
+                    <Wrap justify={"center"}>
                       {event.tags.map((tag, i) => {
-                        return <WrapItem bgColor="blue.400" p="5" rounded="xl">{tag}</WrapItem>;
+                        return (
+                          <WrapItem
+                            bgColor="blue.400"
+                            p="1.5"
+                            fontSize="10"
+                            rounded="xl"
+                            color="gray.50"
+                            fontWeight={"600"}
+                          >
+                            {tag}
+                          </WrapItem>
+                        );
                       })}
                     </Wrap>
+                    <Button width={'80%'} rounded='3xl' color='gray.50' bgColor='green.600' _hover={{bgColor: 'green.800'}}>Register</Button>
+
                   </VStack>
-                </Box>
-              </Flex>
+                </GridItem>
+                <GridItem>
+                  {!isMobile && (
+                    <Image
+                      rounded="xl"
+                      // _hover={{ cursor: "pointer" }}
+                      // as={Link}
+                      // to="/event/1"
+                      size="2xl"
+                      src={event.picture}
+                    />
+                  )}
+                </GridItem>
+              </Grid>
             </Box>
           );
         })}

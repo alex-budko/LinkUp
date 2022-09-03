@@ -1,9 +1,21 @@
 import { Box, Center } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { signup } from "../authentication/signup";
 import SigninForm from "../components/SigninForm";
+import { UserContext } from "../context/User";
+
+import { useNavigate } from "react-router-dom";
+
 
 function Signup() {
+  const { user, setUser } = useContext(UserContext);
+  let navigate = useNavigate();
+
+
+  useEffect(()=> {
+
+  })
+
   const options = [
     {
       name: "Username",
@@ -32,6 +44,9 @@ function Signup() {
   ];
 
   const title = 'Sign Up'
+  const redirect = 'Log In'
+  const message = 'Already have an account?'
+  const href = '/login'
 
   const onSubmit = (e) => {
     const username = e.target[0].value
@@ -40,14 +55,16 @@ function Signup() {
     const password = e.target[3].value
 
     signup(username, name, email, password).then((res)=> {
-      console.log(res)
+      if (res.error) return
+      setUser(res)
+      navigate('/', {replace: true})
     })
   };
 
   return (
     <Box>
       <Center>
-        <SigninForm title={title} options={options} onSubmit={onSubmit} />
+        <SigninForm title={title} redirect={redirect} href={href} message={message} options={options} onSubmit={onSubmit} />
       </Center>
     </Box>
   );
