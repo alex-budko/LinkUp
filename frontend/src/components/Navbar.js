@@ -1,9 +1,17 @@
-import { Box, Center } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   const links = [
+    {
+      name: "Explore",
+      href: "",
+    },
+    {
+      name: "Leaderboard",
+      href: "leaderboard",
+    },
     {
       name: "Login",
       href: "login",
@@ -16,9 +24,11 @@ function Navbar() {
   return (
     <Center>
       {links.map((link, index) => {
-        <Box key={index} as={Link} to={link.href}>
-          {link.name}
-        </Box>;
+        return (
+          <Box key={index} p="8" as={Link} to={link.href}>
+            <Text>{link.name}</Text>
+          </Box>
+        );
       })}
     </Center>
   );
