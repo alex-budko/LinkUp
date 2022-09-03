@@ -1,9 +1,10 @@
 from rest_framework import serializers
 
 from .models import User, Event, Registration
-from .structs import EventTagsEntry
+from .structs import EventTagsEntry, EventTagColors
 
 class UserSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = User
         fields = ['name', 'username', 'password', 'email']
@@ -30,7 +31,7 @@ class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Registration
         fields = '__all__'
-    
+ 
     # def validate_latitide(self, value):
     #     """
     #     Check that the latitude is valid.
