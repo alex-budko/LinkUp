@@ -19,30 +19,43 @@ import React, { useState } from "react";
 import {Link} from 'react-router-dom'
 
 function Main() {
+  const color = "green.400"
   const [events, setEvents] = useState([
     {
-      title: "Event 1",
-      organizer: "Tom",
+      title: "Beach clean-up",
+      organizer: "Tom Nepala",
       availability: "12/50",
-      location: "Philadelphia",
+      location: "Prague",
       start: "8:00PM, June 19th",
-      tags: ["Clean-Up", "Help", "Clean-Up", "Help", "Clean-Up", "Help"],
+      tags: ["#CleanUp"],
+      picture: "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg" ,
     },
     {
-      title: "Event 2",
-      start: "8:00PM, June 28th",
-      organizer: "Tom",
-      availability: "12/50",
-      location: "Eastern Philly",
-      tags: ["Beach-Clean-up"],
+      title: "Food drive",
+      start: "8:00PM, June 29th",
+      organizer: "Alex Budko",
+      availability: "20/50",
+      location: "Souther Philly",
+      tags: ["#FoodDrive"],
+      picture: "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg" ,
     },
     {
-      title: "Event 3",
-      start: "8:00PM, June 28th",
-      organizer: "Tom",
-      availability: "12/50",
+      title: "Gardening",
+      start: "8:00PM, June 30th",
+      organizer: "Kevin Yang",
+      availability: "9/50",
+      location: "Boston",
+      tags: ["#Garderfair"],
+      picture: "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg" ,
+    },
+    {
+      title: "Electricity generation",
+      start: "8:00PM, June 30th",
+      organizer: "Davis Clark",
+      availability: "9/100",
       location: "Eastern Philly",
-      tags: ["Beach-clean-up"],
+      tags: ["#Renewable"],
+      picture: "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
     },
   ]);
 
@@ -65,34 +78,32 @@ function Main() {
               textAlign="center"
               key={index}
               // minW={["100px", "300px"]}
-              width='600px'
+              width='850px'
               // minH="150px"
-              p="10"
-              bgColor="green.600"
+              p="14"
+              bgColor={color}
               mt="10"
             >
               <Flex justifyContent={'center'}>
-                <Box border="1px solid black" ml="-5">
-                  <Avatar _hover={{cursor: 'pointer'}} as={Link} to='/event' size='2xl' src="https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg" />
+                <Box>
+                  <Avatar _hover={{cursor: 'pointer'}} as={Link} to='/event' size='2xl' src={event.picture} />
                 </Box>
                 <Spacer />
-                <Box p="3" border="1px solid black">
+                <Box>
                   <VStack>
                     <Heading as={Link} to='/event'>{event.title}</Heading>
-                    <Text>{event.organizer}</Text>
-                    <Text>{event.location}</Text>
+                    <Text fontSize={24}> {event.organizer}</Text>
+                    <Text fontSize={24}>{event.location}</Text>
                   </VStack>
                 </Box>
                 <Spacer />
-                <Box border="1px solid black">
+                <Box>
                   <VStack>
-                    <HStack>
-                      <Text>{event.start}</Text>
-                      <Text>{event.availability}</Text>
-                    </HStack>
-                    <Wrap justify={'center'} maxW='150px'>
+                      <Text fontSize={24}>{event.start}</Text>
+                      <Text fontSize={24}>{event.availability} available</Text>
+                    <Wrap justify={'center'} maxW='150px' fontSize={24}>
                       {event.tags.map((tag, i) => {
-                        return <WrapItem>{tag}</WrapItem>;
+                        return <WrapItem bgColor="blue.400" p="5" rounded="xl">{tag}</WrapItem>;
                       })}
                     </Wrap>
                   </VStack>
