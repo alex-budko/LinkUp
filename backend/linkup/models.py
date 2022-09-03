@@ -72,11 +72,13 @@ class User(AbstractBaseUser):
 class Event(models.Model):
     eid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=265, blank=False, unique=True)
-    latitide = models.FloatField(blank=False, help_text="Floating point degrees. Negative is South, positive is North.")
+    latitude = models.FloatField(blank=False, help_text="Floating point degrees. Negative is South, positive is North.")
     longitude = models.FloatField(blank=False, help_text="Floating point degrees. Negative is West, positive is East.")
     # location = gis_models.PointField(blank=False)
     organizer = models.ForeignKey(User
 , on_delete=models.CASCADE)
+    description = models.TextField(blank=True)
+    tags = models.TextField(blank=True) # comma separated list of tags. Use structs.EventTagsEntry
 
 class Registration(models.Model):
     rid = models.AutoField(primary_key=True)
