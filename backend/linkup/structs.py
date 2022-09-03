@@ -1,6 +1,8 @@
 from enum import Enum
 from typing import List
 
+import json
+
 class EventTags(str, Enum):
     TRASH_CLEANUP = "Trash-Cleanup"
     FOOD_DRIVE = "Food-Drive"
@@ -15,6 +17,24 @@ class EventTags(str, Enum):
     def values(self):
         return [x.value for x in EventTags]
 
+class EventTagColors(dict):
+    def __init__(self):
+        super().__init__()
+        self.update({
+            EventTags.TRASH_CLEANUP: "#FF0000",
+            EventTags.FOOD_DRIVE: "#00FF00",
+            EventTags.LAWN_MOWING: "#0000FF"
+        })
+    
+    def json(self):
+        return_str = "{"
+        for key, value in self.items():
+            return_str += f"\"{key}\": \"{value}\","
+        return_str = return_str[:-1] + "}"
+        return return_str
+        # print(json.dumps(self))
+        # return json.dumps(self)
+    
 class EventTagsEntry(list[EventTags]):
     def __init__(self, tags):
         for tag in tags:

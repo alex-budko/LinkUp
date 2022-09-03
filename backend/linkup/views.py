@@ -80,7 +80,7 @@ def eventTagColors(request):
     if request.method == "GET":
         return Response(EventTagColors().json())
 
-@api_view(["GET"])
-def eventTags(request):
-    if request.method == "GET":
-        return Response(EventTags().json())
+# @api_view(["GET"])
+# def eventTags(request):
+#     if request.method == "GET":
+#         return Response(EventTags().json())

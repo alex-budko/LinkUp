@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export const login = async (email, password) => {
   const config = {
@@ -10,6 +11,7 @@ export const login = async (email, password) => {
     email,
     password,
   });
+  let user = null;
 
   try {
     await axios
@@ -17,10 +19,15 @@ export const login = async (email, password) => {
       .post(`http://localhost:8000/auth/token/`, body, config)
       .then((res) => {
         localStorage.setItem("access", res.data.access);
-        localStorage.setItem("refresh", res.data.refresh);
+        const user_data = jwt_decode(res.data.access);
+
+        user = {
+          name: user_data["name"],
+          email: user_data["email"],
+        };
       });
 
-    return { success: true };
+    return user;
   } catch (err) {
     return { error: err };
   }

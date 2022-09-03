@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="" element={<Main />} />
           <Route path="profile/:username" element={<Profile />} />
-          <Route path="event/:title" element={<Event />} />
+          <Route path="event/:id" element={<Event />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
         </Routes>
