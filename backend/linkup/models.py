@@ -63,23 +63,5 @@ class UserAccount(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
-    def has_perm(self):
-        "Does the user have a specific permission?"
-        return True
-
-    def has_module_perms(self):
-        "Does the user have permissions to view the app `app_label`?"
-        return True
-
-    @property
-    def is_staff(self):
-        "Is the user a member of staff?"
-        return self.is_admin
-
-    def get_full_name(self):
-        return self.name
-    def get_short_name(self):
-        return self.name
-
     def __str__(self):
         return self.email
