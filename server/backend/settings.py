@@ -31,8 +31,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
-AUTH_USER_MODEL = 'linkup.UserAccount'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'corsheaders',
