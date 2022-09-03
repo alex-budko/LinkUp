@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import List
 
-class EventTags(Enum):
+class EventTags(str, Enum):
     TRASH_CLEANUP = "Trash-Cleanup"
     FOOD_DRIVE = "Food-Drive"
     LAWN_MOWING = "Lawn-Mowing"
@@ -11,6 +11,9 @@ class EventTags(Enum):
 
     def __repr__(self):
         return self.value
+
+    def values(self):
+        return [x.value for x in EventTags]
 
 class EventTagsEntry(list[EventTags]):
     def __init__(self, tags):

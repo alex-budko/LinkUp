@@ -8,8 +8,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .structs import EventTags
 
-import operator
-
 from django.db.models import Q
 class UserCreateList(generics.ListCreateAPIView):
     queryset = User.objects.all()
@@ -21,16 +19,28 @@ class EventsCreateList(generics.ListCreateAPIView):
 
 class EventTagList(generics.ListAPIView):
     def get_queryset(self):
-        tag = self.kwargs['tags']
-        sys.stderr.write(tag)
-        # tags = self.request.queryparams.getlist('tags', '')
+        # tag = self.kwargs['tags']
+        # print(self.request.GET)
+        tags = self.request.query_params.getlist('tags')
         query = Q()
         for tag in tags:
-            if tag in EventTags:
-                query &= Q(event__icontains = tags)
+            try: 
+                EventTags(tag)
+                query &= Q(tags__contains=tag)
+            except:
+                pass
+        return Event.objects.filter(query)
 
-        self.queryset = Event.objets.get(query)
-        return self.queryset
+    serializer_class = EventSerializer
+
+class EventSearchList(generics.ListAPIView):
+    def get_queryset(self):
+        q_parameters = self.request.query_params.getlist('q')
+        query = Q()
+        for q in q_parameters:
+            query &= Q(title__contains=q) | Q(description__contains=q)
+            # return Event.objects.filter(Q(title__contains=q) | Q(description__contains=q))
+        return Event.objects.filter(query)
 
     serializer_class = EventSerializer
 

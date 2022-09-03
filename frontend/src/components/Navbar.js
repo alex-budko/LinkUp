@@ -1,4 +1,4 @@
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Center, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -23,13 +23,15 @@ function Navbar() {
   ];
   return (
     <Center>
-      {links.map((link, index) => {
-        return (
-          <Box key={index} p="8" as={Link} to={link.href}>
-            <Text>{link.name}</Text>
-          </Box>
-        );
-      })}
+      <HStack m='5' bgColor="blue.700" px='10' rounded='full'>
+        {links.map((link, index) => {
+          return (
+            <Box key={index} p="5" as={Link} to={link.href}>
+              <Text>{link.name}</Text>
+            </Box>
+          );
+        })}
+      </HStack>
     </Center>
   );
 }
