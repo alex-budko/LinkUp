@@ -75,12 +75,14 @@ class Event(models.Model):
     latitide = models.FloatField(blank=False, help_text="Floating point degrees. Negative is South, positive is North.")
     longitude = models.FloatField(blank=False, help_text="Floating point degrees. Negative is West, positive is East.")
     # location = gis_models.PointField(blank=False)
-    organizer = models.ForeignKey(User, on_delete=models.CASCADE)
+    organizer = models.ForeignKey(User
+, on_delete=models.CASCADE)
 
 class Registration(models.Model):
     rid = models.AutoField(primary_key=True)
     eid = models.OneToOneField(Event, on_delete=models.CASCADE)
-    uid = models.OneToOneField(User, on_delete=models.CASCADE)
+    uid = models.OneToOneField(User
+, on_delete=models.CASCADE)
     start = models.DateTimeField()
     end = models.DateTimeField()
 
@@ -89,5 +91,6 @@ class Registration(models.Model):
 
 class Session(models.Model):
     sid = models.AutoField(primary_key=True)
-    uid = models.ForeignKey(User, on_delete=models.CASCADE)
+    uid = models.ForeignKey(User
+, on_delete=models.CASCADE)
     token = models.UUIDField(default=uuid.uuid4, editable=False)
