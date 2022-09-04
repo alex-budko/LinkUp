@@ -11,25 +11,39 @@ import {
   Image,
   Spacer,
 } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { get_user } from "../actions/get_user";
 import { UserContext } from "../context/User";
-import { md5 } from "md5";
-import axios from "axios";
 
 function Profile() {
-  // const { user, setUser } = useContext(UserContext);
-
-  const user = {
+  const [user, setUser] = useState({
     username: "Tom Hanks",
     email: "ky200617@gmail.com",
     location: "Philadelphia, PA",
     tags: ["Clean-Up", "Help", "Oceans"],
-    past_events: [
-      "Event 1"
-    ],
+    past_events: ["Event 1"],
     upcoming_events: ["Event 3"],
     hours: 10,
-  };
+  });
+  const { uid } = useParams();
+  useEffect(() => {
+    get_user(uid).then((data) => {
+      console.log(data)
+      // setUser();
+    });
+  }, []);
+  // const user = {
+  //   username: "Tom Hanks",
+  //   email: "ky200617@gmail.com",
+  //   location: "Philadelphia, PA",
+  //   tags: ["Clean-Up", "Help", "Oceans"],
+  //   past_events: [
+  //     "Event 1"
+  //   ],
+  //   upcoming_events: ["Event 3"],
+  //   hours: 10,
+  // };
 
   return (
     <Flex>

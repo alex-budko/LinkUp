@@ -99,11 +99,11 @@ function Main() {
       <Center>
         <Input
           ref={ref}
-          bgColor={'yellow.200'}
+          bgColor={'green.200'}
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
-          textColor={MAIN_COLOR_BLUE}
+          textColor="green.800"
           maxW="300px"
           placeholder="Search"
           _placeholder={{

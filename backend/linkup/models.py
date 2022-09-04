@@ -60,7 +60,6 @@ class User(AbstractBaseUser):
         max_length=265,
         unique=True,
     )
-    username = models.CharField(max_length=265, unique=True, blank=False)
     name = models.CharField(max_length=265, unique=False, blank=False)
 
     objects = UserManager()

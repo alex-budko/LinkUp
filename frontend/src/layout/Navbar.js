@@ -80,7 +80,7 @@ function Navbar() {
                   as={Link}
                   to={link.href}
                   _hover={{
-                    bgColor: LIGHT_HIGHLIGHT_BLUE,
+                    bgColor: "green.200",
                   }}
                 >
                   <Text>{link.name}</Text>
