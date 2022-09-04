@@ -65,7 +65,7 @@ class RegistrationEventsCreateList(generics.ListCreateAPIView):
         uid = self.request.query_params.get('uid', None)
         time = self.request.query_params.get('time', None)
         if uid is None:
-            return []
+            return [] 
         if time is None:
             return Registration.objects.filter(uid=uid)
         elif time == 'past':
