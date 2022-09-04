@@ -87,7 +87,6 @@ class Event(models.Model):
     organizer = models.ForeignKey(User
 , on_delete=models.CASCADE)
     description = models.CharField(blank=True, max_length=1000)
-    tags = ArrayField(models.CharField(max_length=100), blank=True)
     capacity = models.IntegerField(blank=False)
     # code = models.IntegerField(blank=False, unique=True)
     date = models.DateField(null=True)

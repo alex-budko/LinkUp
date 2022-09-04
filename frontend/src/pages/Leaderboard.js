@@ -60,7 +60,7 @@ function Leaderboard() {
                   <Td>
                     <Avatar
                       as={Link}
-                      to={`/profile/${user.uid}`}
+                      to={`/profile/${i + 1}`}
                       name={user.name}
                     />
                   </Td>
