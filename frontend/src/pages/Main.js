@@ -62,7 +62,7 @@ function Main() {
       start: "8:00PM, June 29th",
       organizer: "Alex Budko",
       availability: "20/50",
-      location: "Souther Philly",
+      location: "Southern Philly",
       tags: ["#FoodDrive"],
       picture:
         "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
@@ -73,7 +73,7 @@ function Main() {
       organizer: "Kevin Yang",
       availability: "9/50",
       location: "Boston",
-      tags: ["#Garderfair"],
+      tags: ["#Gardenfair"],
       picture:
         "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
     },

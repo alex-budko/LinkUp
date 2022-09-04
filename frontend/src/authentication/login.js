@@ -24,7 +24,10 @@ export const login = async (email, password) => {
         user = {
           name: user_data["name"],
           email: user_data["email"],
+          uid: user_data["uid"],
         };
+
+        localStorage.setItem("user", JSON.stringify(user));
       });
 
     return user;

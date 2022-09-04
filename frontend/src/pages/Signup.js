@@ -6,15 +6,11 @@ import { UserContext } from "../context/User";
 
 import { useNavigate } from "react-router-dom";
 
-
 function Signup() {
   const { user, setUser } = useContext(UserContext);
   let navigate = useNavigate();
 
-
-  useEffect(()=> {
-
-  })
+  useEffect(() => {});
 
   const options = [
     {
@@ -43,28 +39,34 @@ function Signup() {
     },
   ];
 
-  const title = 'Sign Up'
-  const redirect = 'Log In'
-  const message = 'Already have an account?'
-  const href = '/login'
+  const title = "Sign Up";
+  const redirect = "Log In";
+  const message = "Already have an account?";
+  const href = "/login";
 
   const onSubmit = (e) => {
-    const username = e.target[0].value
-    const name = e.target[1].value
-    const email = e.target[2].value
-    const password = e.target[3].value
+    const username = e.target[0].value;
+    const name = e.target[1].value;
+    const email = e.target[2].value;
+    const password = e.target[3].value;
 
-    signup(username, name, email, password).then((res)=> {
-      if (res.error) return
-      setUser(res)
-      navigate('/', {replace: true})
-    })
+    signup(username, name, email, password).then((res) => {
+      if (res.error) return;
+      navigate("/login", { replace: true });
+    });
   };
 
   return (
     <Box>
       <Center>
-        <SigninForm title={title} redirect={redirect} href={href} message={message} options={options} onSubmit={onSubmit} />
+        <SigninForm
+          title={title}
+          redirect={redirect}
+          href={href}
+          message={message}
+          options={options}
+          onSubmit={onSubmit}
+        />
       </Center>
     </Box>
   );

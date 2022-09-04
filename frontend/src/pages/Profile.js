@@ -1,72 +1,100 @@
 import {
   Avatar,
   Box,
-  Center,
-  HStack,
   Text,
   Wrap,
   WrapItem,
-  Heading,
   VStack,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
+  Center,
+  Heading,
+  Flex,
+  Image,
+  Spacer,
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { UserContext } from "../context/User";
+import { md5 } from "md5";
+import axios from "axios";
+
+export const get_gravatar = async (md5hash) => {
+  let ans;
+  try {
+    await axios
+      .get(`https://gravatar.com/avatar/${md5hash}?size=120&d=404`)
+      .then((res) => {
+        console.log("good");
+      });
+      return Promise.resolve(true);
+
+  } catch (err) {
+    console.log("fail");
+    return Promise.resolve(false);
+  }
+};
+
 
 function Profile() {
   // const { user, setUser } = useContext(UserContext);
 
   const user = {
     username: "Tom Hanks",
-    email: "tom@gmail.com",
+    email: "ky200617s@gmail.com",
     location: "Philadelphia, PA",
     tags: ["Clean-Up", "Help", "Oceans"],
     past_events: [
-      "Event 1",
-      "Event 2",
-      "Event 3",
-      "Event 4",
-      "Event 5",
-      "Event 6",
-      "sdflkj",
-      "Event 1",
-      "Event 2",
-      "Event 3",
-      "Event 4",
-      "Event 5",
-      "Event 6",
-      "sdflkj",
+      "Event 1"
     ],
     upcoming_events: ["Event 3"],
     hours: 10,
   };
 
+  var md5 = require('md5');
+
+  console.log(get_gravatar(md5(user.email)));
+
   return (
-    <Box>
-      <HStack mt="50">
-        <Box ml="250">
-          <Avatar size="2xl" name={user.username} />
-          <VStack mt="2">
-            <Text>{user.username}</Text>
-            <Text>{user.email}</Text>
+    <Flex>
+      <Spacer />
+      <Wrap
+        bgColor="gray.700"
+        minH="550px"
+        shadow="dark-lg"
+        rounded="3xl"
+        p="5"
+        maxW="350px"
+        justify={"center"}
+        mt={"5"}
+      >
+        <Box style={{ marginTop: "15px" }}>
+          <Center>
+            {get_gravatar(md5(user.email)).then((res)=> {return res}).catch((res) => {return res})
+              ? <Image src={`https://gravatar.com/avatar/${md5(user.email)}?size=120&d=404`} rounded="50%"/>
+              : <Avatar size="2xl" name={user.username} />
+            }
+            
+          </Center>
+          <VStack mt="5">
+            <Heading color="white">{user.username}</Heading>
+            <Text color="white">{user.email}</Text>
           </VStack>
         </Box>
-        <VStack style={{ marginLeft: "500px" }} alignItems="end">
+
+        <VStack
+          style={{ align: "center", marginLeft: "10px" }}
+          alignItems="center"
+        >
           <Box
-            rounded="3xl"
+            rounded="2xl"
             textAlign="center"
             width="150px"
             p="2"
             bgColor="yellow.300"
+            style={{ marginTop: "15px" }}
           >
             {user.hours} Total Hours
           </Box>
           <Box
-            rounded="3xl"
+            rounded="2xl"
             textAlign="center"
             width="150px"
             p="2"
@@ -75,92 +103,25 @@ function Profile() {
           >
             {user.location}
           </Box>
-          <Box display="flex">
+          <Wrap justify={"center"} style={{ marginTop: "25px" }}>
             {user.tags.map((tags, index) => {
               return (
-                <Box
+                <WrapItem
                   key={index}
-                  rounded="3xl"
+                  rounded="2xl"
                   textAlign="center"
                   bgColor="green.300"
-                  mt="5"
-                  p="3"
-                  ml="5"
+                  p="2"
                 >
                   <Text>#{tags}</Text>
-                </Box>
+                </WrapItem>
               );
             })}
-          </Box>
+          </Wrap>
         </VStack>
-      </HStack>
-
-      <Accordion allowMultiple borderBottom="none !important">
-        <AccordionItem>
-          <Center>
-            <AccordionButton
-              rounded="3xl"
-              width="850px"
-              p="5"
-              bgColor="green.600"
-              mt="10"
-            >
-              <Box flex="1" textAlign="left">
-                Upcoming Events
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </Center>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-
-        <AccordionItem>
-          <h2>
-            <AccordionButton>
-              <Box flex="1" textAlign="left">
-                Section 2 title
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-
-      <VStack align="left" ml="250" mr="250">
-        <Box rounded="3xl" width="850px" p="5" bgColor="green.600" mt="10">
-          <Heading>Upcoming Events</Heading>
-        </Box>
-
-        <Heading>Past Events</Heading>
-
-        <Wrap>
-          {user.past_events.map((event) => (
-            <WrapItem>
-              <Box
-                bgColor="blackAlpha.300"
-                rounded="3xl"
-                p="5"
-                m="5"
-                maxW="300px"
-              >
-                <Text>{event}</Text>
-              </Box>
-            </WrapItem>
-          ))}
-        </Wrap>
-      </VStack>
-    </Box>
+      </Wrap>
+      <Spacer />
+    </Flex>
   );
 }
 

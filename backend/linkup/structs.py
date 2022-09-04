@@ -7,6 +7,10 @@ class EventTags(str, Enum):
     TRASH_CLEANUP = "Trash-Cleanup"
     FOOD_DRIVE = "Food-Drive"
     LAWN_MOWING = "Lawn-Mowing"
+    PLANTING_TREES = "Planting-Trees"
+    GARDENING = "Community-Gardening"
+    TUTORING = "Tutoring"
+    VOLUNTEER = "Volunteer"
 
     def __str__(self):
         return self.value
@@ -32,8 +36,7 @@ class EventTagColors(dict):
             return_str += f"\"{key}\": \"{value}\","
         return_str = return_str[:-1] + "}"
         return return_str
-        # print(json.dumps(self))
-        # return json.dumps(self)
+
     
 class EventTagsEntry(list[EventTags]):
     def __init__(self, tags):

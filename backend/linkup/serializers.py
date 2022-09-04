@@ -3,12 +3,17 @@ from rest_framework import serializers
 from .models import User, Event, Registration
 from .structs import EventTagsEntry, EventTagColors
 
-class UserSerializer(serializers.ModelSerializer):
-    
+class UserSerializerCreate(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['name', 'username', 'password', 'email']
+        fields = ['name', 'username', 'password', 'email', 'hours']
 
+class UserSeralizersReturn(serializers.ModelSerializer):
+    # hours = serializers.ReadOnlyField(source='hours')
+    class Meta:
+        model = User
+        fields = ['name', 'username', 'email', 'uid', 'hours']
+    
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
@@ -24,7 +29,6 @@ class EventSerializer(serializers.ModelSerializer):
             EventTagsEntry.decode(value)
         except ValueError:
             raise serializers.ValidationError("Invalid tags")
-        
         return value
 
 class RegisterSerializer(serializers.ModelSerializer):
