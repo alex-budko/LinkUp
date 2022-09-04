@@ -32,7 +32,7 @@ export const event_create = async (
 
   console.log(body);
   try {
-    await axios.post(`https://sussis.herokuapp.com/api/events/`, body, config);
+    await axios.post(`http://localhost:8000/api/events/`, body, config);
 
     return { success: true };
   } catch (err) {

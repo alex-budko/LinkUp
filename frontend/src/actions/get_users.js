@@ -12,7 +12,7 @@ export const get_users = async (page) => {
 
   try {
     await axios
-      .get(`https://sussis.herokuapp.com/api/users/`, config)
+      .get(`http://localhost:8000/api/users/`, config)
       .then((res) => {
         users = res.data;
       });

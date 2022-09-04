@@ -82,19 +82,11 @@ class RegistrationEventsCreateList(generics.ListCreateAPIView):
 class EventSearchList(generics.ListAPIView):
     def get_queryset(self):
         q_description = self.request.query_params.getlist('q')
-        q_tags = self.request.query_params.getlist('tags')
         
         query = Q()
         for q in q_description:
-            query &= Q(title__contains=q) | Q(description__contains=q | Q(location__contains=q))
+            query &= (Q(title__icontains=q) | Q(description__icontains=q) | Q(location__icontains=q))
 
-        for tag in q_tags:
-            try:
-                EventTags(tag)
-                query &= Q(tags__contains=tag)
-            except:
-                pass
-            # return Event.objects.filter(Q(title__contains=q) | Q(description__contains=q))
         return Event.objects.filter(query)
 
     serializer_class = EventSerializer

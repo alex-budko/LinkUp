@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const get_events = async () => {
+export const get_search_events = async (search) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export const get_events = async () => {
 
   try {
     await axios
-      .get(`http://localhost:8000/api/events/`, config)
+      .get(`http://localhost:8000/api/events/search/?q=${search}`, config)
       .then((res) => {
         events = res.data;
       });

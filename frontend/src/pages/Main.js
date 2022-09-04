@@ -22,6 +22,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { get_events } from "../actions/get_events";
+import { get_search_events } from "../actions/get_search_events";
 
 function Main() {
   const [isMobile] = useMediaQuery("max-width:500px");
@@ -38,8 +39,8 @@ function Main() {
         setEvents([...evnts]);
       });
     } else {
-        get_events().then((evnts) => {
-          console.log(evnts);
+        get_search_events(search).then((evnts) => {
+          if (evnts.error) return
           setEvents([...evnts]);
         });
     }
@@ -56,6 +57,7 @@ function Main() {
           textColor="green.800"
           maxW="300px"
           placeholder="Search"
+          onChange={(e)=>setSearch(e.target.value)}
           _placeholder={{
             fontWeight: 700,
             color: "green.700",
