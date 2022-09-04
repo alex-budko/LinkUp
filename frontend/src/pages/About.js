@@ -38,7 +38,7 @@ const testimonials = [
     name: 'Davis C.',
     role: "St. George's High School Student In 12th Grade",
     content:
-      'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
+      'Hi everybody! I am Davis and I have really enjoyed this hackathon experience from pulling an all-nighter to midnight karaoke. I look forward to creating more websites and learning more about backend development in the future!',
     avatar:
       'https://media-exp1.licdn.com/dms/image/C5603AQGr_7oS1mzlgA/profile-displayphoto-shrink_800_800/0/1661126814518?e=1668038400&v=beta&t=shfz3cFmh8_RPuKncnrOFQMT6jIrhfC_8plewjQbzpQ',
   },

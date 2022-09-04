@@ -60,8 +60,7 @@ function EventCreate() {
       // date
       ).then(
       () => {
-        console.log('done')
-        // navigate("/", { replace: true });
+        navigate("/", { replace: true });
       }
     );
   };
