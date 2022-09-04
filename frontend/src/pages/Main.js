@@ -103,7 +103,7 @@ function Main() {
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
-          color="blue.200"
+          textColor={MAIN_COLOR_BLUE}
           maxW="300px"
           placeholder="Search"
           _placeholder={{
@@ -134,6 +134,7 @@ function Main() {
                       as={Link}
                       to="/event"
                       textAlign={"center"}
+                      textColor={MAIN_COLOR_BLUE}
                     >
                       {event.title}
                     </Heading>
