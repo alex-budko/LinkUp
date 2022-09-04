@@ -31,7 +31,7 @@ export default function Landing() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Join and host community service events in your local area, without the hassle of dozens of Facebook posts and mall flyers. sdflkjsdlk skfslkjf lsdkj flk jflk jflkjf slk jkljlkfjlkf jskl jlkfj lksj fdlskf jslkfjdlksf 
+          S.U.S.S.I. is an online platform that makes it easier for organizers to connect with volunteers, and volunteers to find avenues for improving their community. 
           </Text>
           <Stack
             direction={'column'}
@@ -68,7 +68,6 @@ export default function Landing() {
                 color="gray.800"
                 top={'-10px'}
                 transform={'rotate(20deg)'}>
-                Host an event for free
               </Text>
             </Box>
           </Stack>

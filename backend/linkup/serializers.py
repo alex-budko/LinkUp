@@ -7,13 +7,13 @@ class UserSerializerCreate(serializers.ModelSerializer):
     # uid = serializers.ReadOnlyField(source='uid')
     class Meta:
         model = User
-        fields = ['name', 'username', 'password', 'email', 'hours']
+        fields = ['name', 'password', 'email', 'hours']
 
 class UserSeralizersReturn(serializers.ModelSerializer):
     # hours = serializers.ReadOnlyField(source='hours')
     class Meta:
         model = User
-        fields = ['name', 'username', 'email', 'uid', 'hours']
+        fields = ['name', 'email', 'uid', 'hours']
     
 class EventSerializer(serializers.ModelSerializer):
     class Meta:

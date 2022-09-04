@@ -178,4 +178,5 @@ def certificateCreation(request):
         return Response({'error': 'uid is required'})
     
     registrations = Registration.objects.filter(uid=uid).all()
-    
+    if len(registrations) == 0:
+        return Response({'error': 'no registrations found'})

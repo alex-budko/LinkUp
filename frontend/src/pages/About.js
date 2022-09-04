@@ -136,7 +136,7 @@ export default function About() {
           fontWeight={'bold'}
           fontSize={20}
           textTransform={'uppercase'}
-          color={'purple.400'}>
+          color={'black.400'}>
         </chakra.h3>
         <chakra.h1
           py={5}
