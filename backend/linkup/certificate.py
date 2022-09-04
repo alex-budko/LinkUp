@@ -11,12 +11,10 @@ def generate_certificate(name, hours: int, date=datetime.datetime.now()):
     10,
     cv2.LINE_8)
 
-    font2=cv2.FONT_HERSHEY_TRIPLEX
     cv2.putText(coe, str(hours), (763,1258), font, 1, (0, 0, 0),
     2,
     cv2.LINE_8)
 
-    font3=cv2.FONT_HERSHEY_TRIPLEX
     cv2.putText(coe, str(date)[:16], (950,1850), font, 1, (0, 0, 0),
     2,
     cv2.LINE_8)

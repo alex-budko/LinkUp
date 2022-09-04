@@ -170,3 +170,10 @@ def eventMemberCount(request):
 
     registrations = Registration.objects.filter(eid=eid).all()
     return Response(len(registrations))
+
+@api_view(["GET"])
+def certificateCreation(request):
+    uid = request.GET.get('uid')
+    if uid is None:
+        return Response({'error': 'uid is required'})
+    
