@@ -99,8 +99,9 @@ function Profile() {
                         const img = new Image();
 
                         img.src = `data:image/png;base64,${data.image}`;
+                        img.width = '350px'
+                        img.height = 'auto'
                         document.body.appendChild(img);
-
                         
                       });
                     }}

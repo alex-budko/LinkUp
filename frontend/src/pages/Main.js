@@ -32,6 +32,7 @@ function Main() {
     "https://www.popsci.com/uploads/2022/04/21/garden.jpg",
     "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
     "https://www.avera.org/app/files/public/79969/volunteers-safely-cleaning-up-community.jpg",
+    "https://iea.imgix.net/9b69c4b4-e46f-43a6-9035-a8cf1143f56d/GettyImages-1169892501.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C0%2C3936%2C2624&w=2560&fit=crop&fm=jpg&q=70&auto=format&h=1707"
   ];
 
   const [search, setSearch] = useState("");
@@ -122,7 +123,7 @@ function Main() {
                 </GridItem>
                 <GridItem>
                   {!isMobile && (
-                    <Image rounded="xl" src={pictures[3 % index]} />
+                    <Image rounded="xl" src={pictures[index % 2]} />
                   )}
                 </GridItem>
               </Grid>
