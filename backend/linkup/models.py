@@ -92,7 +92,9 @@ class Event(models.Model):
     tags = models.CharField(blank=True, max_length=500) # comma separated list of tags. Use structs.EventTagsEntry
     capacity = models.IntegerField(blank=False)
     # code = models.IntegerField(blank=False, unique=True)
-    
+    start_time = models.DateTimeField(blank=False)
+    end_time = models.DateTimeField(blank=False)
+
     @property
     def attendees(self):
         attendees = Registration.objects.filter(eid=self.eid).all()

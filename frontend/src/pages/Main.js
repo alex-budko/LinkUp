@@ -122,7 +122,7 @@ function Main() {
               id={index}
               ref={index === events.length - 1 ? ref : null}
               p="5"
-              bgColor={'blue.200'}
+              bgColor={'blue.700'}
               mt="10"
               maxW={["300px", "600px"]}
             >
@@ -131,14 +131,14 @@ function Main() {
                   <VStack>
                     <Heading
                       size="lg"
+                      // TextColor={MAIN_COLOR_BLUE}
                       as={Link}
                       to="/event"
                       textAlign={"center"}
-                      textColor={MAIN_COLOR_BLUE}
                     >
                       {event.title}
                     </Heading>
-                    <Text fontSize={textSize} >{event.location}</Text>
+                    <Text fontSize={textSize}>{event.location}</Text>
                   </VStack>
                   <VStack>
                     <Text fontSize={textSize}>{event.start}</Text>

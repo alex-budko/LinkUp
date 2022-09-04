@@ -18,7 +18,7 @@ export default function Landing() {
         <Stack
           as={Box}
           textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
+          spacing={{ base: 8, md: 12 }}
           py={{ base: 20, md: 36 }}>
           <Heading
             color="gray.800"

@@ -36,25 +36,23 @@ class EventsCreateList(generics.ListCreateAPIView):
 
         return Event.objects.all()[int(page_number) * self.PAGE_SIZE: (int(page_number) + 1) * self.PAGE_SIZE]
     
-    def create(self, request):
-        raw_tags = request.data.get('tags')
-        print(request.data['tags'])
-        print(request.data)
+    # def create(self, request):
+    #     raw_tags = request.data.get('tags')
 
-        new_request = request
+    #     new_request = request
 
-        if len(raw_tags) > 0:
-            try:
-                raw_tags = raw_tags[1:-1].split(',')
-                string_tag = ''
-                for tag in raw_tags:
-                    tag = tag.replace('"', '')
-                    string_tag += tag + ","
-                new_request.data['tags'] = string_tag[:-1]
-            except:
-                pass
+    #     if len(raw_tags) > 0:
+    #         try:
+    #             raw_tags = raw_tags[1:-1].split(',')
+    #             string_tag = ''
+    #             for tag in raw_tags:
+    #                 tag = tag.replace('"', '')
+    #                 string_tag += tag + ","
+    #             new_request.data['tags'] = string_tag[:-1]
+    #         except:
+    #             pass
 
-        return super().create(new_request)
+    #     return super().create(new_request)
     
     # def create(self, request, *args, **kwargs):
 
