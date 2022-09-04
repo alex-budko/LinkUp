@@ -1,8 +1,6 @@
 from enum import Enum
 from typing import List
 
-import json
-
 class EventTags(str, Enum):
     TRASH_CLEANUP = "Trash-Cleanup"
     FOOD_DRIVE = "Food-Drive"

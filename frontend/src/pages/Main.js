@@ -22,84 +22,24 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { get_events } from "../actions/get_events";
-import {
-  DARK_HIGHLIGHT_BLUE,
-  LIGHT_HIGHLIGHT_BLUE,
-  MAIN_COLOR_BLUE,
-} from "../theme/theme";
-import useOnScreen from "../utils/useOnScreen";
 
 function Main() {
-  const ref = useRef();
   const [isMobile] = useMediaQuery("max-width:500px");
-  const isVisible = useOnScreen(ref);
-  const [page, setPage] = useState(0);
-
   const textSize = 15;
-
-  useEffect(() => {
-    if (isVisible) {
-      setPage(page + 1);
-    }
-  }, [isVisible]);
-
-  useEffect(() => {
-    get_events(page).then((evnts) => {
-      console.log([...events, ...evnts]);
-      // setEvents([...events, ...evnts])
-    });
-  }, [page]);
-
   const color = "#74d09d";
-  const [events, setEvents] = useState([
-    {
-      title: "Beach clean-up",
-      organizer: "Tom Nepala",
-      availability: "12/50",
-      location: "Prague",
-      start: "8:00PM, June 19th",
-      tags: ["#CleanUp", "#CleanUp", "#CleanUp"],
-      picture:
-        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
-    },
-    {
-      title: "Food drive",
-      start: "8:00PM, June 29th",
-      organizer: "Alex Budko",
-      availability: "20/50",
-      location: "Southern Philly",
-      tags: ["#FoodDrive"],
-      picture:
-        "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
-    },
-    {
-      title: "Gardening",
-      start: "8:00PM, June 30th",
-      organizer: "Kevin Yang",
-      availability: "9/50",
-      location: "Boston",
-      tags: ["#Gardenfair"],
-      picture:
-        "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
-    },
-    {
-      title: "Electricity",
-      start: "8:00PM, June 30th",
-      organizer: "Davis Clark",
-      availability: "9/100",
-      location: "Eastern Philly",
-      tags: ["#Renewable"],
-      picture:
-        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
-    },
-  ]);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    get_events().then((evnts) => {
+      setEvents([...evnts]);
+    });
+  }, []);
 
   return (
     <Box color={"white"}>
       <Center>
         <Input
-          ref={ref}
-          bgColor={'green.200'}
+          bgColor={"green.200"}
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
@@ -113,16 +53,15 @@ function Main() {
           fontWeight="semi-bold"
         />
       </Center>
-      <VStack spacing='8'>
+      <VStack spacing="8">
         {events.map((event, index) => {
           return (
             <Box
               rounded="3xl"
               key={index}
               id={index}
-              ref={index === events.length - 1 ? ref : null}
               p="5"
-              bgColor={'green.800'}
+              bgColor={"green.700"}
               mt="10"
               maxW={["300px", "600px"]}
             >
@@ -131,7 +70,6 @@ function Main() {
                   <VStack>
                     <Heading
                       size="lg"
-                      // TextColor={MAIN_COLOR_BLUE}
                       as={Link}
                       to="/event"
                       textAlign={"center"}
@@ -141,12 +79,12 @@ function Main() {
                     <Text fontSize={textSize}>{event.location}</Text>
                   </VStack>
                   <VStack>
-                    <Text fontSize={textSize}>{event.start}</Text>
+                    <Text fontSize={textSize}>{event.start_time}</Text>
                     <Text fontSize={textSize}>
-                      {event.availability} available
+                      {event.capacity - event.attendees_count} spots available
                     </Text>
                     <Wrap justify={"center"}>
-                      {event.tags.map((tag, i) => {
+                      {/* {event.tags.map((tag, i) => {
                         return (
                           <WrapItem
                             bgColor="blue.400"
@@ -159,21 +97,28 @@ function Main() {
                             {tag}
                           </WrapItem>
                         );
-                      })}
+                      })} */}
                     </Wrap>
-                      <Button
-                        width={"80%"}
-                        rounded="3xl"
-                        color="gray.50"
-                        bgColor="green.400"
-                        _hover={{ bgColor: "green.500" }}
-                      >
-                        Register
-                      </Button>
+                    <Button
+                      width={"80%"}
+                      rounded="3xl"
+                      color="gray.50"
+                      bgColor="green.400"
+                      _hover={{ bgColor: "green.500" }}
+                    >
+                      Register
+                    </Button>
                   </VStack>
                 </GridItem>
                 <GridItem>
-                  {!isMobile && <Image rounded="xl" src={event.picture} />}
+                  {!isMobile && (
+                    <Image
+                      rounded="xl"
+                      src={
+                        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg"
+                      }
+                    />
+                  )}
                 </GridItem>
               </Grid>
             </Box>

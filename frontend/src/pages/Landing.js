@@ -9,7 +9,11 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  Image,
+  Center
 } from '@chakra-ui/react';
+
+import {Link as ReactLink} from 'react-router-dom'
 
 export default function Landing() {
   return (
@@ -21,17 +25,23 @@ export default function Landing() {
           spacing={{ base: 10, md: 10 }}
           py={{ base: 20, md: "96px" }}>
           <Heading
-            color="gray.800"
+            color="green.400"
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Service Uniting Students for Sustainable Initiatives<br />
-            <Text as={'span'} color={'green.400'}>
-              Volunteering Made Easy
+            SUSSI<br />
+            <Center>
+            <Image
+            w="200px"
+            src={require("../images/sussi_logo.png")}
+             />
+             </Center>
+            <Text as={'span'} color={'gray.800'} >
+            Service Uniting Students for Sustainable Initiatives
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-          S.U.S.S.I. is an online platform that makes it easier for organizers to connect with volunteers, and volunteers to find avenues for improving their community. 
+          SUSSI is an online platform that makes it easier for organizers to connect with volunteers, and volunteers to find avenues for improving their community. Interested in learning more? Click the button below to find local events.
           </Text>
           <Stack
             direction={'column'}
@@ -44,32 +54,15 @@ export default function Landing() {
               bg={'green.400'}
               rounded={'full'}
               px={6}
+              as={ReactLink}
+              to='/explore'
               _hover={{
                 bg: 'green.500',
               }}>
               Get Started
             </Button>
             <Button variant={'link'} to={"/about"} colorScheme={'blue'} size={'sm'}>
-              Learn more
             </Button>
-            <Box>
-              <Icon
-                as={Arrow}
-                color={useColorModeValue('gray.800', 'gray.300')}
-                w={71}
-                position={'absolute'}
-                right={-71}
-                top={'10px'}
-              />
-              <Text
-                fontSize={'sm'}
-                position={'absolute'}
-                right={'-135px'}
-                color="gray.800"
-                top={'-10px'}
-                transform={'rotate(20deg)'}>
-              </Text>
-            </Box>
           </Stack>
         </Stack>
       </Container>

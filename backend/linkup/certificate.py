@@ -1,7 +1,10 @@
 import cv2
 import datetime
 
-CERT_PATH = "certificate.png"
+CERT_PATH = "backend/linkup/certificate.png"
+
+import time
+from rest_framework.response import Response
 
 def generate_certificate(name, hours: int, date=datetime.datetime.now()):
     coe = cv2.imread (CERT_PATH)
@@ -19,6 +22,13 @@ def generate_certificate(name, hours: int, date=datetime.datetime.now()):
     2,
     cv2.LINE_8)
 
-    print(type(coe))
+    cv2.imwrite("new_cert.png", coe)
 
-    return coe
+    time.sleep(.5)
+    try: 
+        with open("new_cert.png", "rb") as f:
+            return f.read()
+    except:
+        return None
+
+# print(generate_certificate("John Doe", 10, datetime.datetime.now()))

@@ -29,16 +29,16 @@ function Navbar() {
       href: "/",
     },
     {
+      name: "About",
+      href: "/about",
+    },
+    {
       name: "Explore",
       href: "/explore",
     },
     {
       name: "Create",
       href: "event-create",
-    },
-    {
-      name: "About",
-      href: "/about",
     },
     {
       name: "Leaderboard",

@@ -20,7 +20,6 @@ import {
         justify={"center"}
         py={12}
         rounded={"lg"}
-        shadow="dark-lg"
       >
         <Stack
           boxShadow={"2xl"}

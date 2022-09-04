@@ -17,24 +17,24 @@ from django.db.models import Q
 
 from datetime import timedelta
 
-import copy
+from .certificate import generate_certificate
 
 class UserCreateList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializerCreate
 
-class UserList(generics.ListAPIView):
+class UserList(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSeralizersReturn
 
 class EventsCreateList(generics.ListCreateAPIView):
-    PAGE_SIZE = 5
+    # PAGE_SIZE = 5
     # permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        page_number = self.request.query_params.get('page', 0)
+    # def get_queryset(self):
+    #     page_number = self.request.query_params.get('page', 0)
 
-        return Event.objects.all()[int(page_number) * self.PAGE_SIZE: (int(page_number) + 1) * self.PAGE_SIZE]
+    #     return Event.objects.all()[int(page_number) * self.PAGE_SIZE: (int(page_number) + 1) * self.PAGE_SIZE]
     
     # def create(self, request):
     #     raw_tags = request.data.get('tags')
@@ -57,7 +57,7 @@ class EventsCreateList(generics.ListCreateAPIView):
     # def create(self, request, *args, **kwargs):
 
         # return super().create(request, *args, **kwargs, code=)
-
+    queryset = Event.objects.all()
     serializer_class = EventSerializer
 
 class RegistrationEventsCreateList(generics.ListCreateAPIView):
@@ -177,6 +177,7 @@ def certificateCreation(request):
     if uid is None:
         return Response({'error': 'uid is required'})
     
-    registrations = Registration.objects.filter(uid=uid).all()
-    if len(registrations) == 0:
-        return Response({'error': 'no registrations found'})
+    user = User.objects.get(uid=uid)
+    certificate = generate_certificate(user.name, user.hours)
+
+    return Response(certificate, content_type="image/png")

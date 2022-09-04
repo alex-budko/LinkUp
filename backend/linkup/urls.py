@@ -1,11 +1,11 @@
 
 from django.urls import path
-from .views import UserCreateList, EventsCreateList, RegistrationCreateList, EventRetrieveUpdateDestroy, EventSearchList, eventTagColors, userHours, RegistrationEventsCreateList, UserLeaderboardList, UserList
+from .views import UserCreateList, EventsCreateList, RegistrationCreateList, EventRetrieveUpdateDestroy, EventSearchList, eventTagColors, userHours, RegistrationEventsCreateList, UserLeaderboardList, UserList, certificateCreation
 
 urlpatterns = [
     path('users/', UserCreateList.as_view()),
     path('users/<int:pk>/', UserList.as_view()),
-    path('users/certificate/<int:pk>/', userHours),
+    path('users/certificate/', certificateCreation),
     # path('users/hours/', userHours),
     path('users/leaderboard/', UserLeaderboardList.as_view()),
     path('users/events/', RegistrationEventsCreateList.as_view()),

@@ -30,8 +30,7 @@ function App() {
           <Route path="" element={<Landing />} />
             <Route path="explore" element={<Main />} />
             <Route path="about" element={<About />} />
-            <Route path="profile/:username" element={<Profile />} />
-            <Route path="event/:id" element={<Event />} />
+            <Route path="profile/:uid" element={<Profile />} />
             <Route path="event-create" element={<EventCreate />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />

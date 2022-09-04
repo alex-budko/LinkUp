@@ -3,6 +3,7 @@ import {
   Heading,
   TableCaption,
   TableContainer,
+  Box,
   Tbody,
   Td,
   Th,
@@ -19,7 +20,7 @@ import { get_users } from "../actions/get_users";
 import { DARK_HIGHLIGHT_BLUE } from "../theme/theme";
 
 function Leaderboard() {
-  const [users, setUsers] = useState([1, 2, 3, 4, 5]);
+  const [users, setUsers] = useState([]);
 
   console.log(users)
   useEffect(() => {
@@ -29,17 +30,17 @@ function Leaderboard() {
   }, []);
 
   return (
-    <VStack spacing={"5"}>
-      <Heading>Leaderboard</Heading>
+    <VStack spacing={"5"} mt="60px">
+      <Heading color="black">Leaderboard</Heading>
       <Divider />
       <TableContainer
         rounded={"3xl"}
         shadow="dark-lg"
-        color="gray.50"
+        // color="gray.200"
         mb="5"
         p="8"
         minWidth={"70%"}
-        bgColor={DARK_HIGHLIGHT_BLUE}
+        bgColor={'gray.100'}
       >
         <Table >
           <Thead> 
@@ -71,6 +72,8 @@ function Leaderboard() {
         </Table>
         
       </TableContainer>
+      <Box minH="20">
+      </Box>
     </VStack>
   );
 }

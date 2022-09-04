@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const get_events = async (page) => {
+export const get_events = async () => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export const get_events = async (page) => {
 
   try {
     await axios
-      .get(`http://localhost:8000/api/events/?page=${page}`, config)
+      .get(`http://localhost:8000/api/events/`, config)
       .then((res) => {
         events = res.data;
       });

@@ -8,6 +8,7 @@ export const get_user = async (uid) => {
     },
   };
 
+  console.log(uid)
   let user = null
 
   try {
