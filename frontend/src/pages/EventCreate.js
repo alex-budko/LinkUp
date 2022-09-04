@@ -53,11 +53,15 @@ function EventCreate() {
       }
     }
     const capacity = e.target[9].value;
-    const location = e.target[10].value;
+    const location = 'philly'
+    // e.target[10].value;
 
-    event_create(user.uid, title, description, tags, capacity, location).then(
+    event_create(user.uid, title, description, tags, capacity, location, 
+      // date
+      ).then(
       () => {
-        navigate("/", { replace: true });
+        console.log('done')
+        // navigate("/", { replace: true });
       }
     );
   };
@@ -66,7 +70,7 @@ function EventCreate() {
       {user.name ? (
         <Flex color="white">
           <Spacer />
-          <Box p="5" bgColor={"green.800"} maxW={"450px"} rounded="3xl">
+          <Box p="5" bgColor={"green.800"} maxW={"450px"} rounded="3xl" boxShadow="2xl">
             <Center mb="5" mt="3">
               <Heading>Event Create</Heading>
             </Center>

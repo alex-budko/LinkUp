@@ -8,6 +8,8 @@ from django.contrib.auth.models import (
 
 from datetime import timedelta
 
+from django.contrib.postgres.fields import ArrayField
+
 class UserManager(BaseUserManager):
     def create(self, name, email, password=None):
         if not email:
@@ -85,22 +87,21 @@ class Event(models.Model):
     organizer = models.ForeignKey(User
 , on_delete=models.CASCADE)
     description = models.CharField(blank=True, max_length=1000)
-    tags = models.CharField(blank=True, max_length=500) # comma separated list of tags. Use structs.EventTagsEntry
+    tags = ArrayField(models.CharField(max_length=100), blank=True)
     capacity = models.IntegerField(blank=False)
     # code = models.IntegerField(blank=False, unique=True)
-    start_time = models.DateTimeField(blank=False)
-    end_time = models.DateTimeField(blank=False)
+    date = models.DateField(null=True)
 
     @property
     def attendees(self):
         attendees = Registration.objects.filter(eid=self.eid).all()
         return [int(str(attendee.uid)) for attendee in attendees]
     
-    @property
-    def array_tags(self):
-        if len(self.tags) == 0:
-            return []
-        return self.tags.split(',')
+    # @property
+    # def array_tags(self):
+    #     if len(self.tags) == 0:
+    #         return []
+    #     return self.tags.split(',')
 
     @property
     def attendees_count(self):

@@ -178,6 +178,10 @@ def certificateCreation(request):
         return Response({'error': 'uid is required'})
     
     user = User.objects.get(uid=uid)
+    
     certificate = generate_certificate(user.name, user.hours)
 
-    return Response(certificate, content_type="image/png")
+    payload = {
+        "image": certificate
+    }
+    return Response(payload)

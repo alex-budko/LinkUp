@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Button,
   Center,
   Flex,
   Grid,
@@ -11,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { log_out } from "../authentication/logout";
 import { UserContext } from "../context/User";
 import {
   DARK_HIGHLIGHT_BLUE,
@@ -94,6 +96,7 @@ function Navbar() {
                   to={`/profile/${user.uid}`}
                   name={user.name}
                 />
+                <Button onClick={()=>{log_out(setUser)}}>Log Out</Button>
               </>
             )}
           </HStack>

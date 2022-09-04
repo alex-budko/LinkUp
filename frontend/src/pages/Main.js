@@ -26,14 +26,24 @@ import { get_events } from "../actions/get_events";
 function Main() {
   const [isMobile] = useMediaQuery("max-width:500px");
   const textSize = 15;
+
+  const [search, setSearch] = useState("");
   const color = "#74d09d";
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    get_events().then((evnts) => {
-      setEvents([...evnts]);
-    });
-  }, []);
+    if (search === "") {
+      get_events().then((evnts) => {
+        console.log(evnts);
+        setEvents([...evnts]);
+      });
+    } else {
+        get_events().then((evnts) => {
+          console.log(evnts);
+          setEvents([...evnts]);
+        });
+    }
+  }, [search]);
 
   return (
     <Box color={"white"}>
@@ -104,6 +114,8 @@ function Main() {
                       rounded="3xl"
                       color="gray.50"
                       bgColor="green.400"
+                      as={Link}
+                      to={`/event/${event.eid}`}
                       _hover={{ bgColor: "green.500" }}
                     >
                       Register
@@ -124,6 +136,7 @@ function Main() {
             </Box>
           );
         })}
+        <Box minH="20"></Box>
       </VStack>
     </Box>
   );

@@ -18,19 +18,19 @@ class UserSeralizersReturn(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['eid', 'title', 'location', 'organizer', 'description', 'array_tags', 'capacity', 'attendees', 'attendees_count', 'tags', "start_time", "end_time"]
+        fields = ['eid', 'title', 'location', 'organizer', 'description', 'capacity', 'attendees', 'attendees_count', 'tags', "date"]
     
-    def validate_tags(self, value):
-        """
-        Check that the tag list is valid.
-        """
-        if len(value) == 0:
-            return value
-        try:
-            EventTagsEntry.decode(value)
-        except ValueError:
-            raise serializers.ValidationError("Invalid tags")
-        return value
+    # def validate_tags(self, value):
+    #     """
+    #     Check that the tag list is valid.
+    #     """
+    #     if len(value) == 0:
+    #         return value
+    #     try:
+    #         EventTagsEntry.decode(value)
+    #     except ValueError:
+    #         raise serializers.ValidationError("Invalid tags")
+    #     return value
     
     def validate_capacity(self, value):
         """

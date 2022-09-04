@@ -6,6 +6,7 @@ import {
   Link,
   Button,
   Stack,
+  VStack,
   Icon,
   useColorModeValue,
   createIcon,
@@ -23,23 +24,29 @@ export default function Landing() {
           as={Box}
           textAlign={'center'}
           spacing={{ base: 10, md: 10 }}
-          py={{ base: 20, md: "96px" }}>
-          <Heading
-            color="green.400"
-            fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
-            SUSSI<br />
-            <Center>
+          py={{ base: 20, md: "40px" }}>
+          
+          <VStack>
+            <Heading
+              color="green.400"
+              fontWeight={600}
+              fontSize="8xl"
+              lineHeight={'110%'}
+              mb="7.5"
+            >SUSSI
+            </Heading>
+
             <Image
-            w="200px"
-            src={require("../images/sussi_logo.png")}
+              w="200px"
+              src={require("../images/sussi_logo.png")}
              />
-             </Center>
-            <Text as={'span'} color={'gray.800'} >
-            Service Uniting Students for Sustainable Initiatives
+             
+             <Text fontWeight={600}
+              fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }} as={'span'} color={'gray.800'} mt="10">
+                Service Uniting Students for Sustainable Initiatives
             </Text>
-          </Heading>
+          </VStack>
+
           <Text color={'gray.500'}>
           SUSSI is an online platform that makes it easier for organizers to connect with volunteers, and volunteers to find avenues for improving their community. Interested in learning more? Click the button below to find local events.
           </Text>

@@ -6,7 +6,8 @@ export const event_create = async (
   description,
   tags,
   capacity,
-  location
+  location,
+  // date_
 ) => {
   capacity = +capacity;
   const config = {
@@ -14,6 +15,8 @@ export const event_create = async (
       "Content-Type": "application/json",
     },
   };
+
+  // const date = `${date_.year}-${date_.month}-${date_.day}`
   const body = JSON.stringify({
     organizer,
     title,
@@ -21,7 +24,9 @@ export const event_create = async (
     tags,
     capacity,
     location,
+    // date,
   });
+
 
   console.log(body);
   try {

@@ -30,13 +30,12 @@ function Leaderboard() {
   }, []);
 
   return (
-    <VStack spacing={"5"} mt="60px">
-      <Heading color="black">Leaderboard</Heading>
+    <VStack spacing={"5"} mt="10">
+      <Heading color="black" bg="#F0EDEE">Leaderboard</Heading>
       <Divider />
       <TableContainer
         rounded={"3xl"}
         shadow="dark-lg"
-        // color="gray.200"
         mb="5"
         p="8"
         minWidth={"70%"}
@@ -55,9 +54,9 @@ function Leaderboard() {
             {users.map((user, i) => {
               return (
                 <Tr>
-                  <Td>{i + 1}</Td>
-                  <Td>{user.name}</Td>
-                  <Td>{user.hours}</Td>
+                  <Td color="gray.800">{i + 1}</Td>
+                  <Td color="gray.800">{user.name}</Td>
+                  <Td color="gray.800">{user.hours}</Td>
                   <Td>
                     <Avatar
                       as={Link}

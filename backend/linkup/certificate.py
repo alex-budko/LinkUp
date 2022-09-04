@@ -1,13 +1,13 @@
 import cv2
 import datetime
 
-CERT_PATH = "backend/linkup/certificate.png"
+CERT_PATH = "linkup/certificate.png"
 
 import time
-from rest_framework.response import Response
+import base64
 
 def generate_certificate(name, hours: int, date=datetime.datetime.now()):
-    coe = cv2.imread (CERT_PATH)
+    coe = cv2.imread(CERT_PATH)
 
     font=cv2.FONT_HERSHEY_TRIPLEX
     cv2.putText(coe, name, (300,1010), font, 4, (0, 0, 0),
@@ -27,8 +27,6 @@ def generate_certificate(name, hours: int, date=datetime.datetime.now()):
     time.sleep(.5)
     try: 
         with open("new_cert.png", "rb") as f:
-            return f.read()
+            return base64.b64encode(f.read()).decode("utf-8")
     except:
         return None
-
-# print(generate_certificate("John Doe", 10, datetime.datetime.now()))
