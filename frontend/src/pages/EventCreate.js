@@ -26,6 +26,8 @@ import DtPicker from "react-calendar-datetime-picker";
 import "react-calendar-datetime-picker/dist/index.css";
 
 function EventCreate() {
+
+
   const [date, setDate] = useState(null);
 
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ function EventCreate() {
 
     event_create(user.uid, title, description, capacity, location, date).then(
       () => {
-        navigate("/", { replace: true });
+        navigate("/explore", { replace: true });
       }
     );
   };

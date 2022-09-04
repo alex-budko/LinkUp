@@ -28,6 +28,12 @@ function Main() {
   const [isMobile] = useMediaQuery("max-width:500px");
   const textSize = 15;
 
+  const pictures = [
+    "https://www.popsci.com/uploads/2022/04/21/garden.jpg",
+    "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg",
+    "https://www.avera.org/app/files/public/79969/volunteers-safely-cleaning-up-community.jpg",
+  ];
+
   const [search, setSearch] = useState("");
   const color = "#74d09d";
   const [events, setEvents] = useState([]);
@@ -39,10 +45,10 @@ function Main() {
         setEvents([...evnts]);
       });
     } else {
-        get_search_events(search).then((evnts) => {
-          if (evnts.error) return
-          setEvents([...evnts]);
-        });
+      get_search_events(search).then((evnts) => {
+        if (evnts.error) return;
+        setEvents([...evnts]);
+      });
     }
   }, [search]);
 
@@ -57,7 +63,7 @@ function Main() {
           textColor="green.800"
           maxW="300px"
           placeholder="Search"
-          onChange={(e)=>setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           _placeholder={{
             fontWeight: 700,
             color: "green.700",
@@ -88,31 +94,20 @@ function Main() {
                     >
                       {event.title}
                     </Heading>
-                    <Text fontSize={textSize} style={{marginTop:"10px"}}>{event.location}</Text>
+                    <Text fontSize={textSize} style={{ marginTop: "10px" }}>
+                      {event.location}
+                    </Text>
                   </VStack>
                   <VStack>
-                    <Text fontSize={textSize} style={{marginTop:"10px"}}>{event.start_time}</Text>
+                    <Text fontSize={textSize} style={{ marginTop: "10px" }}>
+                      {event.start_time}
+                    </Text>
                     <Text fontSize={textSize}>
                       {event.capacity - event.attendees_count} spots available
                     </Text>
-                    <Wrap justify={"center"}>
-                      {/* {event.tags.map((tag, i) => {
-                        return (
-                          <WrapItem
-                            bgColor="blue.400"
-                            p="1.5"
-                            fontSize="10"
-                            rounded="xl"
-                            color="gray.50"
-                            fontWeight={"600"}
-                          >
-                            {tag}
-                          </WrapItem>
-                        );
-                      })} */}
-                    </Wrap>
+
                     <Button
-                      style={{marginTop:"20px"}}
+                      style={{ marginTop: "20px" }}
                       width={"80%"}
                       rounded="3xl"
                       color="gray.50"
@@ -127,12 +122,7 @@ function Main() {
                 </GridItem>
                 <GridItem>
                   {!isMobile && (
-                    <Image
-                      rounded="xl"
-                      src={
-                        "https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg"
-                      }
-                    />
+                    <Image rounded="xl" src={pictures[3 % index]} />
                   )}
                 </GridItem>
               </Grid>
