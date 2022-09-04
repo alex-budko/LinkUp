@@ -8,7 +8,6 @@ import {
   Center,
   Heading,
   Flex,
-  Image,
   Spacer,
   Button,
 } from "@chakra-ui/react";
@@ -66,38 +65,30 @@ function Profile() {
                 textAlign="center"
                 p="2"
                 bgColor="yellow.500"
-                style={{ marginTop: "15px" }}
+                style={{ marginTop: "5px", marginBottom:"25px"}}
               >
                 {_user.hours} Total Hours
               </Box>
             </VStack>
             {user.name === _user.name && (
               <Box>
-                <Button
-                  onClick={() => {
-                    get_certificate(user.uid).then((data) => {
-                      // console.log(data)
-                      const img = atob(data.image);
-                      const link = document.createElement("a");
-                      link.style.display = "none";
+                <Center>
+                  <Button
+                    onClick={() => {
+                      get_certificate(user.uid).then((data) => {
+                        console.log(data.image)
 
-                      link.href = URL.createObjectURL(
-                        new Blob([img], { type: "image/png" })
-                      );
+                        const img = new Image()
 
-                      link.download = `cetificate.png`;
-
-                      document.body.appendChild(link);
-
-                      link.click();
-
-                      URL.revokeObjectURL(link.href);
-                      link.parentNode.removeChild(link);
-                    });
-                  }}
-                >
-                  Get Certificate
-                </Button>
+                        img.src = `data:image/png;base64,${data.image}`
+                        document.body.appendChild(img)
+          
+                      });
+                    }}
+                  >
+                    Get Certificate
+                  </Button>
+                </Center>
               </Box>
             )}
           </VStack>

@@ -18,6 +18,7 @@ import {
   DARK_HIGHLIGHT_BLUE,
   LIGHT_HIGHLIGHT_BLUE,
   MAIN_COLOR_BLUE,
+  BACKGROUND_WHITE,
 } from "../theme/theme";
 
 const color = "#74d09d";
@@ -96,7 +97,7 @@ function Navbar() {
                   to={`/profile/${user.uid}`}
                   name={user.name}
                 />
-                <Button onClick={()=>{log_out(setUser)}}>Log Out</Button>
+                <Button rounded="full" color="gray.700" _hover={{ bg: "red.400"}} onClick={()=>{log_out(setUser)}}>Log Out</Button>
               </>
             )}
           </HStack>

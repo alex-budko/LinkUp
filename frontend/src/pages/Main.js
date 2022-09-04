@@ -81,7 +81,7 @@ function Main() {
                     <Heading
                       size="lg"
                       as={Link}
-                      to="/event"
+                      to={`/event/${event.eid}`}
                       textAlign={"center"}
                     >
                       {event.title}
