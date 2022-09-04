@@ -138,7 +138,7 @@ function Main() {
                     >
                       {event.title}
                     </Heading>
-                    <Text fontSize={textSize}>{event.location}</Text>
+                    <Text fontSize={textSize} >{event.location}</Text>
                   </VStack>
                   <VStack>
                     <Text fontSize={textSize}>{event.start}</Text>

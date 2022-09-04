@@ -17,6 +17,8 @@ from django.db.models import Q
 
 from datetime import timedelta
 
+import copy
+
 class UserCreateList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializerCreate
@@ -36,7 +38,11 @@ class EventsCreateList(generics.ListCreateAPIView):
     
     def create(self, request):
         raw_tags = request.data.get('tags')
-        
+        print(request.data['tags'])
+        print(request.data)
+
+        new_request = request
+
         if len(raw_tags) > 0:
             try:
                 raw_tags = raw_tags[1:-1].split(',')
@@ -44,12 +50,11 @@ class EventsCreateList(generics.ListCreateAPIView):
                 for tag in raw_tags:
                     tag = tag.replace('"', '')
                     string_tag += tag + ","
-                request.data['tags'] = string_tag[:-1]
-                print(request.data['tags'])
+                new_request.data['tags'] = string_tag[:-1]
             except:
                 pass
 
-        return super().create(request)
+        return super().create(new_request)
     
     # def create(self, request, *args, **kwargs):
 
