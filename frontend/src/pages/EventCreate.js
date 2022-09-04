@@ -72,7 +72,7 @@ function EventCreate() {
           <Spacer />
           <Box p="5" bgColor={"green.800"} maxW={"450px"} rounded="3xl" boxShadow="2xl">
             <Center mb="5" mt="3">
-              <Heading>Event Create</Heading>
+              <Heading>Create Event</Heading>
             </Center>
             <form
               onSubmit={(e) => {

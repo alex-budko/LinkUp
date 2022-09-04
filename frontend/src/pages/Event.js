@@ -59,7 +59,7 @@ export default function Event() {
           justifyContent={"center"}
           py={12}
           rounded={"3xl"}
-          bgColor={LIGHT_HIGHLIGHT_BLUE}
+          bgColor="blue.100"
           shadow="dark-lg"
         >
           <Heading>{event.title}</Heading>
@@ -78,7 +78,7 @@ export default function Event() {
             width="34vw"
             p="5"
             textAlign="left"
-            bgColor={DARK_HIGHLIGHT_BLUE}
+            bgColor="blue.700"
             rounded="2xl"
             color="white"
           >
@@ -92,7 +92,7 @@ export default function Event() {
               minH="125px"
               p="5"
               textAlign="left"
-              bgColor={DARK_HIGHLIGHT_BLUE}
+              bgColor="blue.700"
               rounded="2xl"
               color="white"
             >
@@ -105,7 +105,7 @@ export default function Event() {
               minH="125px"
               p="5"
               textAlign="left"
-              bgColor={DARK_HIGHLIGHT_BLUE}
+              bgColor="blue.700"
               rounded="2xl"
               color="white"
             >
@@ -119,7 +119,7 @@ export default function Event() {
               minH="125px"
               p="5"
               textAlign="left"
-              bgColor={DARK_HIGHLIGHT_BLUE}
+              bgColor="blue.700"
               rounded="2xl"
               color="white"
             >
@@ -133,8 +133,13 @@ export default function Event() {
               onClick(e);
             }}
             textAlign="center"
+            bg={DARK_HIGHLIGHT_BLUE}
             rounded={"2xl"}
             width={"25%"}
+            color="white"
+            _hover={{
+              bg: 'blue.700',
+            }}
           >
             {registering ? <Spinner /> : "Register"}
           </Button>
