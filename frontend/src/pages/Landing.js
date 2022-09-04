@@ -18,22 +18,20 @@ export default function Landing() {
         <Stack
           as={Box}
           textAlign={'center'}
-          spacing={{ base: 8, md: 12 }}
-          py={{ base: 20, md: 36 }}>
+          spacing={{ base: 10, md: 10 }}
+          py={{ base: 20, md: "96px" }}>
           <Heading
             color="gray.800"
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
-            Service Uniting Students for Sustainable Initiatives <br />
+            Service Uniting Students for Sustainable Initiatives<br />
             <Text as={'span'} color={'green.400'}>
               Volunteering Made Easy
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Join and host community service events in your local area, without the hassle of 
           </Text>
           <Stack
             direction={'column'}
