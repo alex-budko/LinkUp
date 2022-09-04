@@ -12,7 +12,7 @@ export const get_search_events = async (search) => {
 
   try {
     await axios
-      .get(`http://localhost:8000/api/events/search/?q=${search}`, config)
+      .get(`http://https://sussis.herokuapp.com/api/events/search/?q=${search}`, config)
       .then((res) => {
         events = res.data;
       });

@@ -10,7 +10,7 @@ export const get_certificate = async (uid) => {
   let data = null;
   try {
     await axios
-      .get(`http://localhost:8000/api/users/certificate/?uid=${uid}`, config)
+      .get(`http://https://sussis.herokuapp.com/api/users/certificate/?uid=${uid}`, config)
       .then((res) => {
         data = res.data;
       });
