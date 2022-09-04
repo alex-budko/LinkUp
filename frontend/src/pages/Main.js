@@ -122,7 +122,7 @@ function Main() {
               id={index}
               ref={index === events.length - 1 ? ref : null}
               p="5"
-              bgColor={'blue.700'}
+              bgColor={'green.800'}
               mt="10"
               maxW={["300px", "600px"]}
             >
@@ -166,7 +166,7 @@ function Main() {
                       rounded="3xl"
                       color="gray.50"
                       bgColor="green.400"
-                      _hover={{ bgColor: "green.800" }}
+                      _hover={{ bgColor: "green.500" }}
                     >
                       Register
                     </Button>
