@@ -12,7 +12,7 @@ import {
 const testimonials = [
   {
     name: 'Alex B.',
-    role: 'Chief Marketing Officer',
+    role: 'UPenn Engineering Student',
     content:
       'It really saves me time and effort. It is exactly what our business has been lacking. EEZY is the most valuable business resource we have EVER purchased. After using EEZY my business skyrocketed!',
     avatar:
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     name: 'Tom N.',
-    role: 'Movie star',
+    role: 'UPenn Wharton Student',
     content:
       "Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, EEZY is the coolest, most happening thing around! I love EEZY!",
     avatar:
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     name: 'Davis C.',
-    role: 'Musician',
+    role: 'St. George-s',
     content:
       'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
     avatar:
@@ -137,7 +137,6 @@ export default function About() {
           fontSize={20}
           textTransform={'uppercase'}
           color={'purple.400'}>
-          People love us
         </chakra.h3>
         <chakra.h1
           py={5}

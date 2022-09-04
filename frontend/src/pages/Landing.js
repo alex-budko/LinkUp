@@ -31,7 +31,7 @@ export default function Landing() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Join and host community service events in your local area, without the hassle of 
+            Join and host community service events in your local area, without the hassle of dozens of Facebook posts and mall 
           </Text>
           <Stack
             direction={'column'}

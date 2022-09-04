@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import django_heroku
 
-django_heroku.settings(locals())
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -123,6 +122,7 @@ DATABASES = {
     }
 }
 
+django_heroku.settings(locals())
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
