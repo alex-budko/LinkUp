@@ -10,12 +10,15 @@ import {
   Center,
   Text,
   HStack,
+  Link,
+  VStack,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link as ReactLink } from "react-router-dom";
+import { MAIN_COLOR_BLUE } from "../theme/theme";
 
 function SigninForm({ options, onSubmit, title, message, redirect, href }) {
   return (
-    <Box p="5" bgColor="green.600" rounded="3xl">
+    <Box p="5" color='white' bgColor={MAIN_COLOR_BLUE} rounded="3xl" minW='400px'>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -28,7 +31,7 @@ function SigninForm({ options, onSubmit, title, message, redirect, href }) {
 
         {options.map((option, index) => {
           return (
-            <FormControl key={index} id={options.id}>
+            <FormControl key={index} id={options.id} mb='20px'>
               <FormLabel>{option.name}</FormLabel>
               <Input
                 required
@@ -36,7 +39,7 @@ function SigninForm({ options, onSubmit, title, message, redirect, href }) {
                 color="black"
                 type={option.type}
               />
-              <FormHelperText>{option.helperText}</FormHelperText>
+              <FormHelperText color='gray.50'>{option.helperText}</FormHelperText>
             </FormControl>
           );
         })}
@@ -44,14 +47,17 @@ function SigninForm({ options, onSubmit, title, message, redirect, href }) {
           width="100%"
           type="submit"
           bgColor="green.300"
-          _hover={{ bgColor: "orange.400" }}
+          _hover={{ bgColor: "green.400" }}
         >
           Submit
         </Button>
-        <HStack mt="5" textAlign={"center"}>
+        <Center>
+        <VStack spacing='-.5' mt="5" textAlign={"center"}>
           <Text>{message}</Text>
-          <Link to={href} _hover={{color: 'white'}}><u>{redirect}</u></Link>
-        </HStack>
+          <Link as={ReactLink} to={href} _hover={{color: 'white', fontWeight: 600}}><u>{redirect}</u></Link>
+        </VStack>
+        </Center>
+        
       </form>
     </Box>
   );

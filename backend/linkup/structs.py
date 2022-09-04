@@ -8,7 +8,7 @@ class EventTags(str, Enum):
     FOOD_DRIVE = "Food-Drive"
     LAWN_MOWING = "Lawn-Mowing"
     PLANTING_TREES = "Planting-Trees"
-    GARDENING = "Community-Gardening"
+    GARDENING = "Gardening"
     TUTORING = "Tutoring"
     VOLUNTEER = "Volunteer"
 

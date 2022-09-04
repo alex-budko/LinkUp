@@ -14,7 +14,7 @@ urlpatterns = [
     path('events/', EventsCreateList.as_view()),                    # Create event endpoint
     path('events/<int:pk>/', EventRetrieveUpdateDestroy.as_view()), # Event details by eid
     path('events/search/', EventSearchList.as_view()),              # Search for events by keyword
-    path('events/register/', RegistrationCreateList.as_view()),     # Register for event
+    path('register/', RegistrationCreateList.as_view()),     # Register for event
     path('tags/', eventTagColors),
     # path('register/', )
 ]

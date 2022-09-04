@@ -69,7 +69,7 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['name']
 
     def __str__(self):
-        return self.email
+        return str(self.uid)
 
     @property
     def hours(self):
@@ -88,21 +88,29 @@ class Event(models.Model):
     location = models.CharField(max_length=265, blank=False)
     organizer = models.ForeignKey(User
 , on_delete=models.CASCADE)
-    description = models.TextField(blank=True)
-    tags = models.TextField(blank=True) # comma separated list of tags. Use structs.EventTagsEntry
+    description = models.CharField(blank=True, max_length=1000)
+    tags = models.CharField(blank=True, max_length=500) # comma separated list of tags. Use structs.EventTagsEntry
     capacity = models.IntegerField(blank=False)
-    # init_code = models.IntegerField(blank=False, unique=True)
-        
-
+    code = models.IntegerField(blank=False, unique=True)
+    
+    @property
+    def attendees(self):
+        attendees = Registration.objects.filter(eid=self.eid).all()
+        return [int(str(attendee.uid)) for attendee in attendees]
+    
+    @property
+    def attendees_count(self):
+        return Registration.objects.filter(eid=self.eid).count()
+    
 class Registration(models.Model):
     rid = models.AutoField(primary_key=True)
     eid = models.OneToOneField(Event, on_delete=models.CASCADE)
     uid = models.OneToOneField(User
 , on_delete=models.CASCADE)
-    start = models.DateTimeField()
-    end = models.DateTimeField()
+    start = models.DateTimeField(blank=True, null=True)
+    end = models.DateTimeField(blank=True, null=True)
 
-    unique_together = [['uid', 'eid']]
+    models.UniqueConstraint(fields=['eid', 'uid'], name='unique_registration')
 
 class Session(models.Model):
     sid = models.AutoField(primary_key=True)

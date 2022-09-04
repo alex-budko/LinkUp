@@ -22,6 +22,11 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { get_events } from "../actions/get_events";
+import {
+  DARK_HIGHLIGHT_BLUE,
+  LIGHT_HIGHLIGHT_BLUE,
+  MAIN_COLOR_BLUE,
+} from "../theme/theme";
 import useOnScreen from "../utils/useOnScreen";
 
 function Main() {
@@ -45,7 +50,7 @@ function Main() {
     });
   }, [page]);
 
-  const color = "yellow.200";
+  const color = "#74d09d";
   const [events, setEvents] = useState([
     {
       title: "Beach clean-up",
@@ -90,18 +95,24 @@ function Main() {
   ]);
 
   return (
-    <Box>
+    <Box color={"white"}>
       <Center>
         <Input
           ref={ref}
-          bgColor="blackAlpha.300"
+          bgColor={LIGHT_HIGHLIGHT_BLUE}
+          shadow={"xl"}
           textAlign="center"
           rounded="3xl"
           maxW="300px"
           placeholder="Search"
+          _placeholder={{
+            fontWeight: 700,
+            color: MAIN_COLOR_BLUE,
+          }}
+          fontWeight="semi-bold"
         />
       </Center>
-      <VStack>
+      <VStack spacing='8'>
         {events.map((event, index) => {
           return (
             <Box
@@ -148,21 +159,19 @@ function Main() {
                         );
                       })}
                     </Wrap>
-                    <Button width={'80%'} rounded='3xl' color='gray.50' bgColor='green.600' _hover={{bgColor: 'green.800'}}>Register</Button>
-
+                    <Button
+                      width={"80%"}
+                      rounded="3xl"
+                      color="gray.50"
+                      bgColor="green.600"
+                      _hover={{ bgColor: "green.800" }}
+                    >
+                      Register
+                    </Button>
                   </VStack>
                 </GridItem>
                 <GridItem>
-                  {!isMobile && (
-                    <Image
-                      rounded="xl"
-                      // _hover={{ cursor: "pointer" }}
-                      // as={Link}
-                      // to="/event/1"
-                      size="2xl"
-                      src={event.picture}
-                    />
-                  )}
+                  {!isMobile && <Image rounded="xl" src={event.picture} />}
                 </GridItem>
               </Grid>
             </Box>

@@ -4,6 +4,7 @@ from .models import User, Event, Registration
 from .structs import EventTagsEntry, EventTagColors
 
 class UserSerializerCreate(serializers.ModelSerializer):
+    # uid = serializers.ReadOnlyField(source='uid')
     class Meta:
         model = User
         fields = ['name', 'username', 'password', 'email', 'hours']
@@ -17,7 +18,7 @@ class UserSeralizersReturn(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['eid', 'title', 'location', 'organizer', 'description', 'tags', 'capacity', 'attendees', 'attendees_count']
     
     def validate_tags(self, value):
         """

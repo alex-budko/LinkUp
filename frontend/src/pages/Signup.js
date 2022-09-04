@@ -14,12 +14,6 @@ function Signup() {
 
   const options = [
     {
-      name: "Username",
-      type: "text",
-      id: "username",
-      helperText: "",
-    },
-    {
       name: "Name",
       type: "text",
       id: "name",
@@ -45,12 +39,11 @@ function Signup() {
   const href = "/login";
 
   const onSubmit = (e) => {
-    const username = e.target[0].value;
-    const name = e.target[1].value;
-    const email = e.target[2].value;
-    const password = e.target[3].value;
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
 
-    signup(username, name, email, password).then((res) => {
+    signup(name, email, password).then((res) => {
       if (res.error) return;
       navigate("/login", { replace: true });
     });

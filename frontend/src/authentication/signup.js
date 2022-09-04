@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const signup = async (username, name, email, password) => {
+export const signup = async (name, email, password) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
-  console.log(username, name, email, password)
+  console.log(name, email, password)
   const body = JSON.stringify({
-    username,
     name,
     email,
     password,

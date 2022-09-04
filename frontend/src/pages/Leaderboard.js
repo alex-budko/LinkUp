@@ -16,6 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { get_users } from "../actions/get_users";
+import { DARK_HIGHLIGHT_BLUE } from "../theme/theme";
 
 function Leaderboard() {
   const [users, setUsers] = useState([1, 2, 3, 4, 5]);
@@ -38,10 +39,10 @@ function Leaderboard() {
         mb="5"
         p="8"
         minWidth={"70%"}
-        bgColor="gray.800"
+        bgColor={DARK_HIGHLIGHT_BLUE}
       >
-        <Table>
-          <Thead>
+        <Table >
+          <Thead> 
             <Tr>
               <Th>Rank</Th>
               <Th>Name</Th>
@@ -68,6 +69,7 @@ function Leaderboard() {
             })}
           </Tbody>
         </Table>
+        
       </TableContainer>
     </VStack>
   );

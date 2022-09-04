@@ -24,11 +24,10 @@ export const get_gravatar = async (md5hash) => {
       .then((res) => {
         console.log("good");
       });
-      return Promise.resolve(true);
+    return true;
 
   } catch (err) {
-    console.log("fail");
-    return Promise.resolve(false);
+    return false;
   }
 };
 
@@ -38,7 +37,7 @@ function Profile() {
 
   const user = {
     username: "Tom Hanks",
-    email: "ky200617s@gmail.com",
+    email: "ky200617@gmail.com",
     location: "Philadelphia, PA",
     tags: ["Clean-Up", "Help", "Oceans"],
     past_events: [
@@ -48,9 +47,7 @@ function Profile() {
     hours: 10,
   };
 
-  var md5 = require('md5');
-
-  console.log(get_gravatar(md5(user.email)));
+  // var md5 = require('md5');
 
   return (
     <Flex>
@@ -67,11 +64,11 @@ function Profile() {
       >
         <Box style={{ marginTop: "15px" }}>
           <Center>
-            {get_gravatar(md5(user.email)).then((res)=> {return res}).catch((res) => {return res})
+            {/* {get_gravatar(md5(user.email)).then((res) => {return res}) == true || get_gravatar(md5(user.email)).catch((res) => {return res}) == false
               ? <Image src={`https://gravatar.com/avatar/${md5(user.email)}?size=120&d=404`} rounded="50%"/>
               : <Avatar size="2xl" name={user.username} />
-            }
-            
+            } */}
+            <Avatar size="2xl" name={user.username} />
           </Center>
           <VStack mt="5">
             <Heading color="white">{user.username}</Heading>

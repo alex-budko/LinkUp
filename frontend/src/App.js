@@ -10,6 +10,7 @@ import Layout from "./layout/Layout";
 import EventCreate from "./pages/EventCreate";
 import Leaderboard from "./pages/Leaderboard";
 import Register from "./pages/Register";
+import Success from "./pages/Success";
 
 function App() {
   const [user, setUser] = useState(
@@ -32,6 +33,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
             <Route path="leaderboard" element={<Leaderboard />} />
+            <Route path="success" element={<Success />} />
             <Route path="register/:eid" element={<Register />} />
           </Routes>
         </Layout>

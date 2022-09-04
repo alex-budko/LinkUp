@@ -33,6 +33,10 @@ class EventsCreateList(generics.ListCreateAPIView):
         page_number = self.request.query_params.get('page', 0)
 
         return Event.objects.all()[int(page_number) * self.PAGE_SIZE: (int(page_number) + 1) * self.PAGE_SIZE]
+    
+    # def create(self, request, *args, **kwargs):
+
+        # return super().create(request, *args, **kwargs, code=)
 
     serializer_class = EventSerializer
 
