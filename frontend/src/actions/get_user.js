@@ -13,7 +13,7 @@ export const get_user = async (uid) => {
 
   try {
     await axios
-      .get(`http://https://sussis.herokuapp.com/api/users/${uid}/`, config)
+      .get(`https://sussis.herokuapp.com/api/users/${uid}/`, config)
       .then((res) => {
         user = res.data;
       });
