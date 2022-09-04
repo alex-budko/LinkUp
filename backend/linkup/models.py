@@ -99,7 +99,9 @@ class Event(models.Model):
         return [int(str(attendee.uid)) for attendee in attendees]
     
     @property
-    def tagsh(self):
+    def array_tags(self):
+        if len(self.tags) == 0:
+            return []
         return self.tags.split(',')
 
     @property

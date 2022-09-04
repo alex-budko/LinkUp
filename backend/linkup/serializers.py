@@ -18,7 +18,7 @@ class UserSeralizersReturn(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['eid', 'title', 'location', 'organizer', 'description', 'tags', 'capacity', 'attendees', 'attendees_count', 'tagsh']
+        fields = ['eid', 'title', 'location', 'organizer', 'description', 'array_tags', 'capacity', 'attendees', 'attendees_count', 'tags']
     
     def validate_tags(self, value):
         """
@@ -31,6 +31,15 @@ class EventSerializer(serializers.ModelSerializer):
         except ValueError:
             raise serializers.ValidationError("Invalid tags")
         return value
+    
+    def validate_capacity(self, value):
+        """
+        Check that the capacity is valid.
+        """
+        if value < 0:
+            raise serializers.ValidationError("Invalid capacity")
+        return value
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:

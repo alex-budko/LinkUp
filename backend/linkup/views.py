@@ -34,6 +34,24 @@ class EventsCreateList(generics.ListCreateAPIView):
 
         return Event.objects.all()[int(page_number) * self.PAGE_SIZE: (int(page_number) + 1) * self.PAGE_SIZE]
     
+    def post(self, request, *args, **kwargs):
+        raw_tags = request.GET.get('tags', None)
+
+        if raw_tags is not None:
+            try:
+                print("HERE")
+                raw_tags = raw_tags[1:-1].split(',')
+                string_tag = ''
+                for tag in raw_tags:
+                    tag = tag.replace('"', '')
+                    string_tag += tag + ","
+                print(string_tag[:-1])
+                request.data['tags'] = string_tag[:-1]
+            except:
+                pass
+
+        return super().post(request, *args, **kwargs)
+    
     # def create(self, request, *args, **kwargs):
 
         # return super().create(request, *args, **kwargs, code=)

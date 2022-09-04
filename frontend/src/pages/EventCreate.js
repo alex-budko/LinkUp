@@ -45,7 +45,7 @@ function EventCreate() {
 
     for (let i = 2; i <= 8; i++) {
       if (e.target[i].checked) {
-        tags.append(e.target[i].id )
+        tags.push(e.target[i].id)
       }
     }
     const capacity = e.target[9].value

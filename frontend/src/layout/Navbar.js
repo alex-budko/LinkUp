@@ -25,8 +25,16 @@ function Navbar() {
 
   const links = [
     {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "About",
+      href: "/about",
+    },
+    {
       name: "Explore",
-      href: "",
+      href: "/explore",
     },
     {
       name: "Leaderboard",
@@ -44,13 +52,15 @@ function Navbar() {
   return (
     <Grid templateColumns="5fr 5fr 5fr" mb="5" mt="5">
       <GridItem>
-        <Image
-          w="60px"
-          position={"absolute"}
-          left="50px"
-          top="5"
-          src={require("../images/sussi_logo.png")}
-        />
+        <Box as={Link} to='/'>
+          <Image
+            w="60px"
+            position={"absolute"}
+            left="50px"
+            top="5"
+            src={require("../images/sussi_logo.png")}
+          />
+        </Box>
       </GridItem>
       <GridItem />
       <GridItem>

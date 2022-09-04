@@ -10,6 +10,8 @@ import EventCreate from "./pages/EventCreate";
 import Leaderboard from "./pages/Leaderboard";
 import Event from "./pages/Event";
 import Success from "./pages/Success";
+import Landing from "./pages/Landing";
+import About from "./pages/About";
 
 function App() {
   const [user, setUser] = useState(
@@ -25,7 +27,9 @@ function App() {
       <UserContext.Provider value={_user}>
         <Layout>
           <Routes>
-            <Route path="" element={<Main />} />
+          <Route path="" element={<Landing />} />
+            <Route path="explore" element={<Main />} />
+            <Route path="about" element={<About />} />
             <Route path="profile/:username" element={<Profile />} />
             <Route path="event/:id" element={<Event />} />
             <Route path="event-create" element={<EventCreate />} />
