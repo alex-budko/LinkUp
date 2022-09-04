@@ -14,13 +14,14 @@ import {
 export default function Landing() {
   return (
     <>
-      <Container maxW={'3xl'} border="1px solid black">
+      <Container maxW={'3xl'}>
         <Stack
           as={Box}
           textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 36 }}>
           <Heading
+            color="gray.800"
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
             lineHeight={'110%'}>
@@ -63,12 +64,12 @@ export default function Landing() {
                 top={'10px'}
               />
               <Text
-                fontSize={'lg'}
-                fontFamily={'Caveat'}
+                fontSize={'sm'}
                 position={'absolute'}
-                right={'-125px'}
-                top={'-15px'}
-                transform={'rotate(15deg)'}>
+                right={'-135px'}
+                color="gray.800"
+                top={'-10px'}
+                transform={'rotate(20deg)'}>
                 Host events for free
               </Text>
             </Box>

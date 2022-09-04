@@ -29,20 +29,20 @@ function Navbar() {
       href: "/",
     },
     {
-      name: "About",
-      href: "/about",
-    },
-    {
       name: "Explore",
       href: "/explore",
     },
     {
-      name: "Leaderboard",
-      href: "leaderboard",
-    },
-    {
       name: "Create",
       href: "event-create",
+    },
+    {
+      name: "About",
+      href: "/about",
+    },
+    {
+      name: "Leaderboard",
+      href: "leaderboard",
     },
     {
       name: "Login",
