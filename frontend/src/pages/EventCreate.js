@@ -41,12 +41,11 @@ function EventCreate() {
   const onSubmit = (e) => {
     const title = e.target[0].value
     const description = e.target[1].value
-    let tags = ''
+    let tags = []
 
     for (let i = 2; i <= 8; i++) {
       if (e.target[i].checked) {
-        if (i === 8) tags += (e.target[i].id)
-        else tags += (e.target[i].id + ',')
+        tags.append(e.target[i].id )
       }
     }
     const capacity = e.target[9].value
@@ -56,16 +55,13 @@ function EventCreate() {
       navigate('/', {replace: true})
     })
   };
-
-  
-
   return (
     <>
       {user.name ? (
-        <Flex>
+        <Flex color='white'>
           <Spacer />
-          <Box p="5" bgColor="green.600" maxW={"450px"} rounded="3xl">
-            <Center>
+          <Box p="5" bgColor={"green.800"} maxW={"450px"} rounded="3xl">
+            <Center mb="5" mt="3">
               <Heading>Event Create</Heading>
             </Center>
             <form
@@ -74,57 +70,46 @@ function EventCreate() {
                 onSubmit(e);
               }}
             >
-              
-
-              <FormControl bgColor={"blue.300"} mb="2">
-                <Center>
-                  <Heading size={"md"}>Title</Heading>
-                </Center>
-                <Input required placeholder="Title" />
+              <FormControl mb="2">
+                  <Heading size={"md"} mb="2" >Title*</Heading>
+                <Input mb="4" color='black' bgColor='white' required placeholder="Title" />
               </FormControl>
 
-              <FormControl bgColor={"blue.300"} mb="2">
-                <Center>
-                  <Heading size={"md"}>Description</Heading>
-                </Center>
-                <Textarea required placeholder="Description" />
+              <FormControl mb="2">
+                  <Heading size={"md"} mb="2">Description</Heading>
+                <Textarea mb="4" color='black' bgColor='white' placeholder="Description" />
               </FormControl>
 
-              <FormControl bgColor={"blue.300"} mb="2">
-                <Center>
-                  <Heading size={"md"}>Tags</Heading>
-                </Center>
-                <Wrap spacing={5} justify="center">
-                  {tags.map((tag, index) => {
-                    return <Checkbox id={tag} key={index}>{tag}</Checkbox>;
-                  })}
-                </Wrap>
-              </FormControl>
-
-              <FormControl bgColor={"blue.300"} mb="2">
-                <Center>
-                  <Heading size={"md"}>Capacity</Heading>
-                </Center>
-                <NumberInput>
+              <FormControl mb="2">
+                <Heading size={"md"} mb="2">Capacity*</Heading>
+                <NumberInput mb="6" defaultValue={2} min={2} max={20} color='black' bgColor='white'>
                   <NumberInputField />
                   <NumberInputStepper>
-                    <NumberIncrementStepper />
-                    <NumberDecrementStepper />
+                    <NumberIncrementStepper bgColor='green.400' rounded='md' />
+                    <NumberDecrementStepper bgColor='green.400' rounded='md' />
                   </NumberInputStepper>
                 </NumberInput>
               </FormControl>
-              <FormControl bgColor={"blue.300"} mb="2">
-                <Center>
-                  <Heading size={"md"}>Location</Heading>
-                </Center>
-                <Input placeholder="Location" />
+
+              <FormControl mb="2">
+                  <Heading size={"md"} mb="2">Location*</Heading>
+                <Input mb="4" color='black' bgColor='white' required placeholder="Location" />
+              </FormControl>
+
+              <FormControl mb="2">
+                  <Heading size={"md"} mb="2">Tags</Heading>
+                <Wrap spacing={5} justify='center' mb="10">
+                  {tags.map((tag, index) => {
+                    return <Checkbox bgColor='green.900' rounded='md' p='3' id={tag} key={index}>{tag}</Checkbox>;
+                  })}
+                </Wrap>
               </FormControl>
 
               <Button
                 width="100%"
                 type="submit"
                 bgColor="green.300"
-                _hover={{ bgColor: "orange.400" }}
+                _hover={{ bgColor: "green.400" }}
               >
                 Submit
               </Button>

@@ -5,6 +5,7 @@ from .views import UserCreateList, EventsCreateList, RegistrationCreateList, Eve
 urlpatterns = [
     path('users/', UserCreateList.as_view()),
     path('users/<int:pk>/', UserList.as_view()),
+    path('users/certificate/<int:pk>/', userHours),
     # path('users/hours/', userHours),
     path('users/leaderboard/', UserLeaderboardList.as_view()),
     path('users/events/', RegistrationEventsCreateList.as_view()),

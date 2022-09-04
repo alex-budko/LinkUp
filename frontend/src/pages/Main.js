@@ -99,7 +99,7 @@ function Main() {
       <Center>
         <Input
           ref={ref}
-          bgColor={LIGHT_HIGHLIGHT_BLUE}
+          bgColor={'blue.200'}
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
@@ -121,7 +121,7 @@ function Main() {
               id={index}
               ref={index === events.length - 1 ? ref : null}
               p="5"
-              bgColor={color}
+              bgColor={'blue.200'}
               mt="10"
               maxW={["300px", "600px"]}
             >
@@ -163,7 +163,7 @@ function Main() {
                       width={"80%"}
                       rounded="3xl"
                       color="gray.50"
-                      bgColor="green.600"
+                      bgColor="green.400"
                       _hover={{ bgColor: "green.800" }}
                     >
                       Register

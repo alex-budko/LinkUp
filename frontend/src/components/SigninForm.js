@@ -14,11 +14,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
-import { MAIN_COLOR_BLUE } from "../theme/theme";
 
 function SigninForm({ options, onSubmit, title, message, redirect, href }) {
   return (
-    <Box p="5" color='white' bgColor={MAIN_COLOR_BLUE} rounded="3xl" minW='400px'>
+    <Box p="5" color='white' bgColor={"green.800"} rounded="3xl" minW='500px'>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -26,12 +25,12 @@ function SigninForm({ options, onSubmit, title, message, redirect, href }) {
         }}
       >
         <Center>
-          <Heading size="md">{title}</Heading>
+          <Heading size="lg">{title}</Heading>
         </Center>
 
         {options.map((option, index) => {
           return (
-            <FormControl key={index} id={options.id} mb='20px'>
+            <FormControl key={index} id={options.id} mb='30px'>
               <FormLabel>{option.name}</FormLabel>
               <Input
                 required

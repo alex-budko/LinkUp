@@ -64,7 +64,7 @@ function Navbar() {
                   rounded="3xl"
                   color="gray.700"
                   fontWeight="750"
-                  minW="120px"
+                  minW="130px"
                   key={index}
                   p="2.5"
                   as={Link}

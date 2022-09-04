@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Event from "./pages/Event";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 import Profile from "./pages/Profile";
@@ -9,7 +8,7 @@ import { useMemo, useState } from "react";
 import Layout from "./layout/Layout";
 import EventCreate from "./pages/EventCreate";
 import Leaderboard from "./pages/Leaderboard";
-import Register from "./pages/Register";
+import Event from "./pages/Event";
 import Success from "./pages/Success";
 
 function App() {
@@ -34,7 +33,7 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="leaderboard" element={<Leaderboard />} />
             <Route path="success" element={<Success />} />
-            <Route path="register/:eid" element={<Register />} />
+            <Route path="event/:eid" element={<Event />} />
           </Routes>
         </Layout>
       </UserContext.Provider>

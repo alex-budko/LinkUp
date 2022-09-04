@@ -16,22 +16,6 @@ import { UserContext } from "../context/User";
 import { md5 } from "md5";
 import axios from "axios";
 
-export const get_gravatar = async (md5hash) => {
-  let ans;
-  try {
-    await axios
-      .get(`https://gravatar.com/avatar/${md5hash}?size=120&d=404`)
-      .then((res) => {
-        console.log("good");
-      });
-    return true;
-
-  } catch (err) {
-    return false;
-  }
-};
-
-
 function Profile() {
   // const { user, setUser } = useContext(UserContext);
 
@@ -46,8 +30,6 @@ function Profile() {
     upcoming_events: ["Event 3"],
     hours: 10,
   };
-
-  // var md5 = require('md5');
 
   return (
     <Flex>
@@ -64,10 +46,6 @@ function Profile() {
       >
         <Box style={{ marginTop: "15px" }}>
           <Center>
-            {/* {get_gravatar(md5(user.email)).then((res) => {return res}) == true || get_gravatar(md5(user.email)).catch((res) => {return res}) == false
-              ? <Image src={`https://gravatar.com/avatar/${md5(user.email)}?size=120&d=404`} rounded="50%"/>
-              : <Avatar size="2xl" name={user.username} />
-            } */}
             <Avatar size="2xl" name={user.username} />
           </Center>
           <VStack mt="5">
@@ -83,9 +61,8 @@ function Profile() {
           <Box
             rounded="2xl"
             textAlign="center"
-            width="150px"
             p="2"
-            bgColor="yellow.300"
+            bgColor="yellow.500"
             style={{ marginTop: "15px" }}
           >
             {user.hours} Total Hours
@@ -93,7 +70,6 @@ function Profile() {
           <Box
             rounded="2xl"
             textAlign="center"
-            width="150px"
             p="2"
             bgColor="blue.300"
             style={{ marginTop: "25px" }}
@@ -107,7 +83,7 @@ function Profile() {
                   key={index}
                   rounded="2xl"
                   textAlign="center"
-                  bgColor="green.300"
+                  bgColor="green.500"
                   p="2"
                 >
                   <Text>#{tags}</Text>
