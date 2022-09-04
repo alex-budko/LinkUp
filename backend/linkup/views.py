@@ -177,3 +177,4 @@ def certificateCreation(request):
     if uid is None:
         return Response({'error': 'uid is required'})
     
+    
