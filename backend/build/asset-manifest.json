@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.923c80bc.css",
-    "main.js": "/static/js/main.e3c62570.js",
+    "main.js": "/static/js/main.3c041d35.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/sussi_logo.png": "/static/media/sussi_logo.85854252222ac00744c7.png",
     "index.html": "/index.html",
     "main.923c80bc.css.map": "/static/css/main.923c80bc.css.map",
-    "main.e3c62570.js.map": "/static/js/main.e3c62570.js.map",
+    "main.3c041d35.js.map": "/static/js/main.3c041d35.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.923c80bc.css",
-    "static/js/main.e3c62570.js"
+    "static/js/main.3c041d35.js"
   ]
 }
