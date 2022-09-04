@@ -14,13 +14,13 @@ const testimonials = [
     name: 'Alex B.',
     role: 'UPenn Engineering Student',
     content:
-      'It really saves me time and effort. It is exactly what our business has been lacking. EEZY is the most valuable business resource we have EVER purchased. After using EEZY my business skyrocketed!',
+      'Alex here! I am a front-end engineer currently in my freshman year of',
     avatar:
       'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
   },
   {
     name: 'Kevin Y.',
-    role: 'Newton South High School Student',
+    role: 'Newton South High School Student in 11th grade',
     content:
       "I didn't even need training. We've used EEZY for the last five years. I have gotten at least 50 times the value from EEZY. I made back the purchase price in just 48 hours!",
     avatar:
@@ -28,15 +28,15 @@ const testimonials = [
   },
   {
     name: 'Tom N.',
-    role: 'UPenn Wharton Student',
+    role: 'UPenn Wharton Freshman Student',
     content:
-      "Thank you for making it painless, pleasant and most of all, hassle free! I'm good to go. No matter where you go, EEZY is the coolest, most happening thing around! I love EEZY!",
+      "Hello everyone! My name is Tom and this is my first and probably last time taking part in a hackathon. Hopefully this website will work properly, but even if it would not, I really enjoyed the time with our team.",
     avatar:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=334&q=80',
   },
   {
     name: 'Davis C.',
-    role: "St. George's High School Student",
+    role: "St. George's High School Student in 12th grade",
     content:
       'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
     avatar:
@@ -144,7 +144,7 @@ export default function About() {
           fontFamily={'Work Sans'}
           fontWeight={'bold'}
           color={useColorModeValue('gray.700', 'gray.700')}>
-          Learn about the team behind Sussi
+          Learn about the team behind SUSSI
         </chakra.h1>
         <chakra.h2
           margin={'auto'}
@@ -152,11 +152,11 @@ export default function About() {
           fontFamily={'Inter'}
           fontWeight={'medium'}
           color={useColorModeValue('gray.500', 'gray.400')}>
-          See why over{' '}
+          See how we can in the sustainability movement with{' '}
           <chakra.strong color={useColorModeValue('gray.700', 'gray.50')}>
-            150,000+
+            million
           </chakra.strong>{' '}
-          influencers use EEZY to manage their social media content!
+          of high school, college, and other volunteers.
         </chakra.h2>
       </Box>
       <SimpleGrid
