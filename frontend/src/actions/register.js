@@ -16,7 +16,7 @@ export const register = async (uid, eid) => {
   });
 
   try {
-    await axios.post(`http://localhost:8000/api/register/`, body, config);
+    await axios.post(`https://sussis.herokuapp.com/api/register/`, body, config);
 
     return { success: true };
   } catch (err) {

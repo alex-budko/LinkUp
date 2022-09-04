@@ -12,7 +12,7 @@ export const get_events = async () => {
 
   try {
     await axios
-      .get(`http://localhost:8000/api/events/`, config)
+      .get(`https://sussis.herokuapp.com/api/events/`, config)
       .then((res) => {
         events = res.data;
       });

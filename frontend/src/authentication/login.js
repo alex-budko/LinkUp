@@ -16,7 +16,7 @@ export const login = async (email, password) => {
   try {
     await axios
       //   .post(`${process.env.REACT_APP_BACKEND_URL}/token/`, body, config)
-      .post(`http://localhost:8000/auth/token/`, body, config)
+      .post(`https://sussis.herokuapp.com/auth/token/`, body, config)
       .then((res) => {
         localStorage.setItem("access", res.data.access);
         const user_data = jwt_decode(res.data.access);
