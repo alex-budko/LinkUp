@@ -123,7 +123,7 @@ function Main() {
                 </GridItem>
                 <GridItem>
                   {!isMobile && (
-                    <Image rounded="xl" src={pictures[index % 2]} />
+                    <Image rounded="xl" src={pictures[index % 3]} />
                   )}
                 </GridItem>
               </Grid>
