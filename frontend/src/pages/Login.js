@@ -10,7 +10,6 @@ function Login() {
   const { user, setUser } = useContext(UserContext);
   let navigate = useNavigate();
 
-
   const options = [
     {
       name: "Email",
@@ -34,7 +33,6 @@ function Login() {
       setUser(res)
       navigate('/', {replace: true})
     })
-
   };
 
   const title = "Log In";
