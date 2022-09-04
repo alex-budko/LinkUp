@@ -45,6 +45,7 @@ class EventsCreateList(generics.ListCreateAPIView):
                     tag = tag.replace('"', '')
                     string_tag += tag + ","
                 request.data['tags'] = string_tag[:-1]
+                print(request.data['tags'])
             except:
                 pass
 

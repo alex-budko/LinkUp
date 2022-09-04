@@ -103,6 +103,7 @@ function Main() {
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
+          color="blue.200"
           maxW="300px"
           placeholder="Search"
           _placeholder={{
