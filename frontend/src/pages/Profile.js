@@ -100,6 +100,8 @@ function Profile() {
 
                         img.src = `data:image/png;base64,${data.image}`;
                         document.body.appendChild(img);
+
+                        
                       });
                     }}
                   >
