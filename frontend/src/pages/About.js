@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     name: 'Kevin Y.',
-    role: 'Entrepreneur',
+    role: 'Newton South High School Student',
     content:
       "I didn't even need training. We've used EEZY for the last five years. I have gotten at least 50 times the value from EEZY. I made back the purchase price in just 48 hours!",
     avatar:
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     name: 'Davis C.',
-    role: 'St. George-s',
+    role: "St. George's High School Student",
     content:
       'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
     avatar:
@@ -143,8 +143,8 @@ export default function About() {
           fontSize={48}
           fontFamily={'Work Sans'}
           fontWeight={'bold'}
-          color={useColorModeValue('gray.700', 'gray.50')}>
-          You're in good company
+          color={useColorModeValue('gray.700', 'gray.700')}>
+          Learn about the team behind Sussi
         </chakra.h1>
         <chakra.h2
           margin={'auto'}

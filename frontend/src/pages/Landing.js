@@ -31,7 +31,7 @@ export default function Landing() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Join and host community service events in your local area, without the hassle of dozens of Facebook posts and mall 
+            Join and host community service events in your local area, without the hassle of dozens of Facebook posts and mall flyers. sdflkjsdlk skfslkjf lsdkj flk jflk jflkjf slk jkljlkfjlkf jskl jlkfj lksj fdlskf jslkfjdlksf 
           </Text>
           <Stack
             direction={'column'}
@@ -68,7 +68,7 @@ export default function Landing() {
                 color="gray.800"
                 top={'-10px'}
                 transform={'rotate(20deg)'}>
-                Host events for free
+                Host an event for free
               </Text>
             </Box>
           </Stack>
