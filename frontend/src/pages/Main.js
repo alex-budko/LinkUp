@@ -83,7 +83,7 @@ function Main() {
         "https://gracechristianchurch.com/wp-content/uploads/2021/01/Food-Drive-2.jpg",
     },
     {
-      title: "Electricity generation",
+      title: "Electricity",
       start: "8:00PM, June 30th",
       organizer: "Davis Clark",
       availability: "9/100",
@@ -99,7 +99,7 @@ function Main() {
       <Center>
         <Input
           ref={ref}
-          bgColor={'blue.200'}
+          bgColor={'yellow.200'}
           shadow={"xl"}
           textAlign="center"
           rounded="3xl"
@@ -108,7 +108,7 @@ function Main() {
           placeholder="Search"
           _placeholder={{
             fontWeight: 700,
-            color: MAIN_COLOR_BLUE,
+            color: "green.700",
           }}
           fontWeight="semi-bold"
         />
@@ -161,15 +161,15 @@ function Main() {
                         );
                       })}
                     </Wrap>
-                    <Button
-                      width={"80%"}
-                      rounded="3xl"
-                      color="gray.50"
-                      bgColor="green.400"
-                      _hover={{ bgColor: "green.500" }}
-                    >
-                      Register
-                    </Button>
+                      <Button
+                        width={"80%"}
+                        rounded="3xl"
+                        color="gray.50"
+                        bgColor="green.400"
+                        _hover={{ bgColor: "green.500" }}
+                      >
+                        Register
+                      </Button>
                   </VStack>
                 </GridItem>
                 <GridItem>
