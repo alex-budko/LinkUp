@@ -30,7 +30,7 @@ const testimonials = [
     name: 'Tom N.',
     role: 'UPenn Wharton Student In Freshman Year',
     content:
-      "Hello everyone! My name is Tom and this is my first and probably last time taking part in a hackathon. Hopefully this website will work properly, but even if it would not, I really enjoyed the time with our team.",
+      "Hello everyone! My name is Tom and this is my first and probably last time taking part in a hackathon. Hopefully this website will work properly, but even if it would not, I had fun with our team",
     avatar:
       'https://media-exp1.licdn.com/dms/image/C4E03AQGXgyF3jN7eMQ/profile-displayphoto-shrink_400_400/0/1660131688776?e=1668038400&v=beta&t=nufik3wU6lVWiJQue5KjlmUx-jweWWrLq9NFa1fI7Zc',
   },
@@ -40,7 +40,7 @@ const testimonials = [
     content:
       'I am so pleased with this product. EEZY is both attractive and highly adaptable. Without EEZY, we would have gone bankrupt by now. Thank you for creating this product!',
     avatar:
-      'https://images.unsplash.com/photo-1606513542745-97629752a13b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
+      'https://media-exp1.licdn.com/dms/image/C5603AQGr_7oS1mzlgA/profile-displayphoto-shrink_800_800/0/1661126814518?e=1668038400&v=beta&t=shfz3cFmh8_RPuKncnrOFQMT6jIrhfC_8plewjQbzpQ',
   },
 ];
 
