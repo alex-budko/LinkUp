@@ -9,14 +9,13 @@ from django.contrib.auth.models import (
 from datetime import timedelta
 
 class UserManager(BaseUserManager):
-    def create(self, name, username, email, password=None):
+    def create(self, name, email, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
             name=name,
-            username=username
         )
 
         user.set_password(password)
@@ -24,14 +23,13 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_user(self, email, username, name, password=None):
+    def create_user(self, email, name, password=None):
         if not email:
             raise ValueError('Users must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
             name=name,
-            username=username
         )
 
         user.set_password(password)
@@ -39,12 +37,11 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_superuser(self, email, username, name, password=None):
+    def create_superuser(self, email, name, password=None):
         user = self.create_user(
             email,
             password=password,
             name=name,
-            username=username
         )
 
         user.is_admin = True
