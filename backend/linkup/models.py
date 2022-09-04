@@ -91,13 +91,17 @@ class Event(models.Model):
     description = models.CharField(blank=True, max_length=1000)
     tags = models.CharField(blank=True, max_length=500) # comma separated list of tags. Use structs.EventTagsEntry
     capacity = models.IntegerField(blank=False)
-    code = models.IntegerField(blank=False, unique=True)
+    # code = models.IntegerField(blank=False, unique=True)
     
     @property
     def attendees(self):
         attendees = Registration.objects.filter(eid=self.eid).all()
         return [int(str(attendee.uid)) for attendee in attendees]
     
+    @property
+    def tagsh(self):
+        return self.tags.split(',')
+
     @property
     def attendees_count(self):
         return Registration.objects.filter(eid=self.eid).count()

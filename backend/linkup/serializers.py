@@ -18,7 +18,7 @@ class UserSeralizersReturn(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['eid', 'title', 'location', 'organizer', 'description', 'tags', 'capacity', 'attendees', 'attendees_count']
+        fields = ['eid', 'title', 'location', 'organizer', 'description', 'tags', 'capacity', 'attendees', 'attendees_count', 'tags']
     
     def validate_tags(self, value):
         """
