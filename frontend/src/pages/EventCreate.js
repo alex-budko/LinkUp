@@ -30,35 +30,15 @@ function EventCreate() {
 
   const navigate = useNavigate();
 
-  const tags = [
-    "Trash-Cleanup",
-    "Food-Drive",
-    "Lawn-Moving",
-    "Planting-Trees",
-    "Tutoring",
-    "Gardening",
-    "Volunteer",
-  ];
-
   const { user, setUser } = useContext(UserContext);
 
   const onSubmit = (e) => {
     const title = e.target[0].value;
     const description = e.target[1].value;
-    let tags = [];
+    const capacity = e.target[2].value;
+    const location = e.target[3].value;
 
-    for (let i = 2; i <= 8; i++) {
-      if (e.target[i].checked) {
-        tags.push(e.target[i].id);
-      }
-    }
-    const capacity = e.target[9].value;
-    const location = 'philly'
-    // e.target[10].value;
-
-    event_create(user.uid, title, description, tags, capacity, location, 
-      // date
-      ).then(
+    event_create(user.uid, title, description, capacity, location, date).then(
       () => {
         navigate("/", { replace: true });
       }
@@ -69,7 +49,13 @@ function EventCreate() {
       {user.name ? (
         <Flex color="white">
           <Spacer />
-          <Box p="5" bgColor={"green.800"} maxW={"450px"} rounded="3xl" boxShadow="2xl">
+          <Box
+            p="5"
+            bgColor={"green.800"}
+            minW={"500px"}
+            rounded="3xl"
+            boxShadow="2xl"
+          >
             <Center mb="5" mt="3">
               <Heading>Create Event</Heading>
             </Center>
@@ -138,29 +124,16 @@ function EventCreate() {
               </FormControl>
 
               <FormControl mb="2">
-                <Heading size={"md"} mb="2">
-                  Tags
+                <Heading size={"md"} mb="1">
+                  Date*
                 </Heading>
-                <Wrap spacing={5} justify="center" mb="10">
-                  {tags.map((tag, index) => {
-                    return (
-                      <Checkbox
-                        bgColor="green.900"
-                        rounded="md"
-                        p="3"
-                        id={tag}
-                        key={index}
-                      >
-                        {tag}
-                      </Checkbox>
-                    );
-                  })}
-                </Wrap>
+                <Box color="black" style={{ marginBottom: "25px" }}>
+                  <DtPicker
+                    onChange={setDate}
+                  />
+                </Box>
               </FormControl>
 
-              <Box color="black">
-                <DtPicker onChange={setDate} />
-              </Box>
               <Button
                 width="100%"
                 type="submit"
@@ -176,8 +149,7 @@ function EventCreate() {
       ) : (
         <NotAuthenticated />
       )}
-      <Box minH="20">
-      </Box>
+      <Box minH="20"></Box>
     </>
   );
 }

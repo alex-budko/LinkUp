@@ -14,7 +14,7 @@ const testimonials = [
     name: 'Alex B.',
     role: 'UPenn Engineering Student In Freshman Year',
     content:
-      'Alex here! I am a front-end engineer currently in my freshman year at Penn. I look forward to coding some more websites',
+      'Alex here! I am a front-end engineer currently in my freshman year at Penn. I look forward to coding some more websites.',
     avatar:
       'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80',
   },
@@ -30,7 +30,7 @@ const testimonials = [
     name: 'Tom N.',
     role: 'UPenn Wharton Student In Freshman Year',
     content:
-      "Hello everyone! My name is Tom and this is my first and probably last time taking part in a hackathon. Hopefully this website will work properly, but even if it would not, I had fun with our team",
+      "Hello everyone! My name is Tom, and this is my first and probably last time taking part in a hackathon. Hopefully, this website will work properly, but even if it would not, I had fun with our team. Cheers!",
     avatar:
       'https://media-exp1.licdn.com/dms/image/C4E03AQGXgyF3jN7eMQ/profile-displayphoto-shrink_400_400/0/1660131688776?e=1668038400&v=beta&t=nufik3wU6lVWiJQue5KjlmUx-jweWWrLq9NFa1fI7Zc',
   },

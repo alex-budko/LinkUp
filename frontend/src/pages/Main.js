@@ -79,17 +79,17 @@ function Main() {
                 <GridItem p="2">
                   <VStack>
                     <Heading
-                      size="lg"
+                      size="xl"
                       as={Link}
                       to={`/event/${event.eid}`}
                       textAlign={"center"}
                     >
                       {event.title}
                     </Heading>
-                    <Text fontSize={textSize}>{event.location}</Text>
+                    <Text fontSize={textSize} style={{marginTop:"10px"}}>{event.location}</Text>
                   </VStack>
                   <VStack>
-                    <Text fontSize={textSize}>{event.start_time}</Text>
+                    <Text fontSize={textSize} style={{marginTop:"10px"}}>{event.start_time}</Text>
                     <Text fontSize={textSize}>
                       {event.capacity - event.attendees_count} spots available
                     </Text>
@@ -110,6 +110,7 @@ function Main() {
                       })} */}
                     </Wrap>
                     <Button
+                      style={{marginTop:"20px"}}
                       width={"80%"}
                       rounded="3xl"
                       color="gray.50"

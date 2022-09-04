@@ -13,6 +13,7 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { get_event } from "../actions/get_event";
+import { get_user } from "../actions/get_user";
 import { register } from "../actions/register";
 import { UserContext } from "../context/User";
 import { DARK_HIGHLIGHT_BLUE, LIGHT_HIGHLIGHT_BLUE } from "../theme/theme";
@@ -23,6 +24,7 @@ export default function Event() {
 
   const [registering, setRegistering] = useState(false);
   const { user, setUser } = useContext(UserContext);
+  const [org, setOrg] = useState(null)
 
   const [event, setEvent] = useState({
     title: "",
@@ -31,6 +33,9 @@ export default function Event() {
   useEffect(() => {
     get_event(eid).then((data) => {
       setEvent(data);
+      get_user(data.organizer).then((res)=> {
+        setOrg(res.name)
+      })
     });
   }, []);
 
@@ -39,7 +44,7 @@ export default function Event() {
     if (user.name) {
       setTimeout(() => {
         register(user.uid, eid);
-        navigate("/success");
+        navigate("/");
       }, 1000);
     } else {
       setTimeout(() => {
@@ -64,7 +69,7 @@ export default function Event() {
         >
           <Heading>{event.title}</Heading>
           <Heading size="md">
-            By <i> {event.organizer}</i>
+            By <i>{org ? org : 'NAN'}</i>
           </Heading>
           <Image
             rounded="xl"
@@ -88,7 +93,7 @@ export default function Event() {
           <HStack>
             <Box
               spacing="3"
-              width="11vw"
+              width="17vw"
               minH="125px"
               p="5"
               textAlign="left"
@@ -101,7 +106,7 @@ export default function Event() {
             </Box>
             <Box
               spacing="3"
-              width="11vw"
+              width="17vw"
               minH="125px"
               p="5"
               textAlign="left"
@@ -110,21 +115,7 @@ export default function Event() {
               color="white"
             >
               <Heading size={["sm", "md"]}>Members</Heading>
-              <Text>{event.availability} </Text>
-            </Box>
-
-            <Box
-              spacing="3"
-              width="11vw"
-              minH="125px"
-              p="5"
-              textAlign="left"
-              bgColor="blue.700"
-              rounded="2xl"
-              color="white"
-            >
-              <Heading size={["sm", "md"]}>Tags</Heading>
-              <Text>{event.availability} </Text>
+              <Text>{event.attendees_count} </Text>
             </Box>
           </HStack>
 
